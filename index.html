@@ -266,15 +266,11 @@
     <!-- ================================================================= -->
     <!-- 01 / THUMBNAIL PORTFOLIO (YAHAN APNI PHOTOS KA NAAM SET HOTA HAI) -->
     <!-- ================================================================= -->
-    <section id="work">
-      <div class="sec-tag">01 / Visual Packaging</div>
-      <h2>TAP TO SEE THE UPGRADE.</h2>
-      <p class="sec-sub">Tap between "AFTER" and "BEFORE" below to see how we transform ignored thumbnails into high-CTR click magnets.</p>
-
-      <!-- THUMBNAIL CASE STUDY 1 -->
+          <!-- THUMBNAIL CASE STUDY 1 -->
       <div class="bento-card">
         <div class="thumb-grid">
-                      <!-- Tap Buttons for Mobile & Desktop -->
+          <div>
+            <!-- Tap Buttons for Mobile & Desktop -->
             <div class="img-tabs">
               <button class="tab-btn active" onclick="switchImg('thumb1', 'After-1.jpg', 'AFTER (OUR REDESIGN)', this)">
                 ✨ AFTER (REDESIGN)
@@ -288,13 +284,6 @@
             <div class="thumb-frame">
               <span id="badge-thumb1" class="img-badge">AFTER (OUR REDESIGN)</span>
               <img id="img-thumb1" src="After-1.jpg" alt="600 Sq Ft Luxury House Thumbnail">
-            </div>
-          
-            <!-- Image Box -->
-            <div class="thumb-frame">
-              <span id="badge-thumb1" class="img-badge">AFTER (OUR REDESIGN)</span>
-              <!-- NOTE: Make sure your uploaded image in GitHub is named after-1.jpg -->
-              <img id="img-thumb1" src="after-1.jpg" alt="600 Sq Ft Luxury House Thumbnail" onerror="this.src='https://placehold.co/1280x720/111115/a3e635?text=Upload+after-1.jpg+and+before-1.jpg+to+GitHub'">
             </div>
           </div>
 
@@ -312,8 +301,7 @@
           </div>
         </div>
       </div>
-      <!-- Future mein 2nd thumbnail add karna ho toh upar wala <div class="bento-card">...</div> copy-paste kar dein -->
-    </section>
+    
 
     <!-- ================================================================= -->
     <!-- 02 / VIDEO REELS SECTION (FUTURE MEIN YOUTUBE ID YAHAN DAALEIN)   -->
@@ -449,9 +437,13 @@
     </footer>
   </main>
 
-  <script>
+    <script>
     function switchImg(id, imgSrc, badgeText, btn) {
       document.getElementById('img-' + id).src = imgSrc;
       document.getElementById('badge-' + id).innerText = badgeText;
       const buttons = btn.parentElement.querySelectorAll('.tab-btn');
-      buttons.forEach(b => b.classList.remove('ac
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    </script>
+    
