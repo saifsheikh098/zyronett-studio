@@ -1,389 +1,452 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZyroNett Studio — High-CTR Packaging & Retention Editing</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>ZyroNett Studio — High-CTR Thumbnails & Video Editing</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #070709;
+      --card: #111115;
+      --border: rgba(255, 255, 255, 0.1);
+      --lime: #a3e635;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #050505;
-      color: #f4f4f5;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    .font-display { font-family: 'Syne', sans-serif; }
-    .bento-card {
-      background: linear-gradient(180deg, rgba(24,24,27,0.7) 0%, rgba(9,9,11,0.9) 100%);
-      border: 1px solid rgba(255,255,255,0.08);
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 18px; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 7, 9, 0.85);
       backdrop-filter: blur(12px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border-bottom: 1px solid var(--border);
     }
-    .bento-card:hover {
-      border-color: rgba(163, 230, 53, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -15px rgba(163, 230, 53, 0.1);
+    .nav-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
     }
-    .glow-bg {
-      background: radial-gradient(circle at 50% 0%, rgba(163, 230, 53, 0.15), transparent 60%);
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
+    .logo-box {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--lime); color: #000;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 15px;
     }
-    /* Custom Range Slider for Before/After */
-    .slider-input {
-      -webkit-appearance: none;
-      appearance: none;
+    .logo span { color: var(--lime); font-weight: 500; }
+    .btn-sm {
+      background: var(--lime); color: #000;
+      padding: 9px 16px; border-radius: 99px;
+      font-weight: 700; font-size: 13px;
+      transition: 0.2s;
+    }
+
+    /* Hero */
+    .hero { padding: 48px 0 36px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 99px;
+      background: rgba(163, 230, 53, 0.1);
+      border: 1px solid rgba(163, 230, 53, 0.3);
+      color: var(--lime); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 20px;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 7vw, 68px);
+      line-height: 1.06; font-weight: 800;
+      letter-spacing: -1px; margin-bottom: 18px;
+    }
+    h1 span { color: var(--lime); }
+    .hero-p { color: var(--muted); font-size: clamp(15px, 2.2vw, 19px); max-width: 640px; margin-bottom: 28px; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-primary {
+      background: var(--lime); color: #000;
+      padding: 15px 24px; border-radius: 14px;
+      font-weight: 800; font-size: 15px;
+      display: inline-block; text-align: center;
       width: 100%;
-      height: 100%;
-      background: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 30;
-      cursor: ew-resize;
     }
-    .slider-input::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 4px;
-      height: 100vh;
-      background: #a3e635;
-      cursor: ew-resize;
+    .btn-secondary {
+      background: rgba(255,255,255,0.06); color: #fff;
+      border: 1px solid var(--border);
+      padding: 15px 24px; border-radius: 14px;
+      font-weight: 700; font-size: 15px;
+      display: inline-block; text-align: center;
+      width: 100%;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 12px; margin-top: 36px;
+    }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 16px; border-radius: 16px;
+    }
+    .stat-val { font-size: 20px; font-weight: 800; color: #fff; }
+    .stat-val.lime { color: var(--lime); }
+    .stat-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* Sections */
+    section { padding: 48px 0 16px; }
+    .sec-tag { color: var(--lime); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; }
+    h2 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 5vw, 42px); font-weight: 800; margin-top: 6px; line-height: 1.15; }
+    .sec-sub { color: var(--muted); font-size: 14px; margin-top: 8px; margin-bottom: 28px; max-width: 540px; }
+
+    /* Cards */
+    .bento-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Thumbnail Showcase (Mobile First) */
+    .thumb-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .img-tabs {
+      display: flex; gap: 8px; margin-bottom: 12px;
+      background: #000; padding: 5px; border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .tab-btn {
+      flex: 1; padding: 10px; border-radius: 8px;
+      border: none; font-weight: 800; font-size: 12px;
+      cursor: pointer; transition: 0.2s;
+      background: transparent; color: var(--muted);
+    }
+    .tab-btn.active { background: var(--lime); color: #000; }
+    .thumb-frame {
+      position: relative; width: 100%; aspect-ratio: 16 / 9;
+      border-radius: 14px; overflow: hidden;
+      background: #18181b; border: 1px solid var(--border);
+    }
+    .thumb-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .img-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(0,0,0,0.85); color: var(--lime);
+      border: 1px solid rgba(163,230,53,0.4);
+      padding: 5px 10px; border-radius: 99px;
+      font-size: 11px; font-weight: 800;
+    }
+    .case-title { font-size: 20px; font-weight: 800; margin: 14px 0 12px; }
+    .box-prob {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      padding: 12px 14px; border-radius: 12px;
+      font-size: 13px; color: #e4e4e7; margin-bottom: 10px;
+    }
+    .box-prob strong { color: #f87171; display: block; margin-bottom: 3px; }
+    .box-fix {
+      background: rgba(163, 230, 53, 0.08);
+      border: 1px solid rgba(163, 230, 53, 0.25);
+      padding: 12px 14px; border-radius: 12px;
+      font-size: 13px; color: #e4e4e7;
+    }
+    .box-fix strong { color: var(--lime); display: block; margin-bottom: 3px; }
+
+    /* Reels Grid */
+    .reels-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    .reel-box {
+      aspect-ratio: 9 / 16; max-height: 420px; width: 100%;
+      background: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+      border-radius: 16px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 20px; margin-bottom: 14px; overflow: hidden;
+    }
+    .reel-box iframe { width: 100%; height: 100%; border: none; }
+    .play-icon {
+      width: 52px; height: 52px; border-radius: 16px;
+      background: rgba(163, 230, 53, 0.12);
+      border: 1px solid rgba(163, 230, 53, 0.35);
+      color: var(--lime); display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 12px;
+    }
+
+    /* Pricing Grid */
+    .price-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    .bento-card.popular { border-color: var(--lime); box-shadow: 0 0 30px -10px rgba(163, 230, 53, 0.2); }
+    .price-amt { font-size: 34px; font-weight: 800; margin: 14px 0 4px; }
+    .price-amt span { font-size: 13px; color: var(--muted); font-weight: 500; }
+    .feat-list { list-style: none; margin: 16px 0 22px; border-top: 1px solid var(--border); padding-top: 16px; }
+    .feat-list li { font-size: 13.5px; color: #d4d4d8; margin-bottom: 10px; display: flex; gap: 8px; }
+    .feat-list li b { color: var(--lime); }
+
+    /* Footer CTA */
+    .cta-box {
+      text-align: center; padding: 36px 20px;
+      background: linear-gradient(180deg, rgba(163,230,53,0.08) 0%, rgba(17,17,21,0.95) 100%);
+      border: 1px solid rgba(163,230,53,0.3);
+      border-radius: 24px; margin-top: 40px;
+    }
+    footer {
+      text-align: center; padding: 30px 0 40px;
+      color: var(--muted); font-size: 12px;
+      border-top: 1px solid var(--border); margin-top: 40px;
+    }
+
+    /* Tablet & Desktop Upgrades */
+    @media (min-width: 640px) {
+      .btn-primary, .btn-secondary { width: auto; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .reels-grid, .price-grid { grid-template-columns: repeat(3, 1fr); }
+      .thumb-grid { grid-template-columns: 1.2fr 1fr; align-items: center; }
+      .bento-card { padding: 28px; }
     }
   </style>
 </head>
-<body class="selection:bg-lime-400 selection:text-black">
+<body>
 
-  <!-- TOP GLOW -->
-  <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
-
-  <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
-    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-lime-400 text-black font-extrabold flex items-center justify-center text-lg tracking-tighter">ZN</div>
-        <span class="font-bold tracking-tight text-lg">ZYRONETT <span class="text-lime-400 font-normal">STUDIO</span></span>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-bar">
+      <a href="#" class="logo">
+        <div class="logo-box">ZN</div>
+        <div>ZYRONETT <span>STUDIO</span></div>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-zinc-400 font-medium">
-        <a href="#thumbnails" class="hover:text-white transition">Thumbnails</a>
-        <a href="#reels" class="hover:text-white transition">Video Edits</a>
-        <a href="#pricing" class="hover:text-white transition">Pricing</a>
-      </nav>
-      <a id="nav-whatsapp" href="#" target="_blank" class="px-5 py-2.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-lime-400 transition">
-        Book a Call ↗
+      <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20discuss%20a%20project." target="_blank" class="btn-sm">
+        WhatsApp Us ↗
       </a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <main class="relative z-10 max-w-6xl mx-auto px-5 pt-16 pb-24">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-lime-400/30 bg-lime-400/10 text-lime-300 text-xs font-semibold tracking-wide uppercase mb-6">
-      <span class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></span>
-      High-Conversion Creative Partner
-    </div>
-
-    <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] max-w-4xl">
-      STOP LOSING VIEWS TO <span class="text-lime-400">WEAK PACKAGING.</span>
-    </h1>
-
-    <p class="mt-6 text-zinc-400 text-lg sm:text-xl max-w-2xl leading-relaxed">
-      We engineer high-CTR YouTube Thumbnails and high-retention Short-Form Videos for ambitious creators and brands who want measurable growth, not just "pretty designs."
-    </p>
-
-    <div class="mt-10 flex flex-wrap items-center gap-4">
-      <a id="hero-whatsapp" href="#" target="_blank" class="px-8 py-4 rounded-2xl bg-lime-400 text-black font-bold text-base hover:bg-lime-300 transition shadow-lg shadow-lime-400/20">
-        Get a Free Thumbnail/Reel Audit ↗
-      </a>
-      <a href="#thumbnails" class="px-8 py-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold text-base transition">
-        See Live Before/After ↓
-      </a>
-    </div>
-
-    <!-- QUICK STATS / TRUST BAR -->
-    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bento-card p-5 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-extrabold text-white">Psychology</div>
-        <div class="text-xs text-zinc-400 mt-1">Driven CTR Design</div>
-      </div>
-      <div class="bento-card p-5 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-extrabold text-lime-400">24–48 Hr</div>
-        <div class="text-xs text-zinc-400 mt-1">Fast Turnaround Time</div>
-      </div>
-      <div class="bento-card p-5 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-extrabold text-white">Hook-First</div>
-        <div class="text-xs text-zinc-400 mt-1">Retention Video Pacing</div>
-      </div>
-      <div class="bento-card p-5 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-extrabold text-lime-400">100%</div>
-        <div class="text-xs text-zinc-400 mt-1">Custom Visual Assets</div>
-      </div>
-    </div>
-
-    <!-- SECTION 1: INTERACTIVE THUMBNAIL TRANSFORMATIONS -->
-    <section id="thumbnails" class="mt-28">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <span class="text-lime-400 text-xs font-bold tracking-widest uppercase">01 / Visual Packaging</span>
-          <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">DRAG TO SEE THE UPGRADE.</h2>
-        </div>
-        <p class="text-zinc-400 text-sm max-w-md">
-          Slide left and right on the images below to see how we turn cluttered, ignored thumbnails into click-magnets.
-        </p>
-      </div>
-
-      <!-- Dynamic Container for Thumbnails -->
-      <div id="thumbnail-grid" class="grid grid-cols-1 gap-10"></div>
-    </section>
-
-    <!-- SECTION 2: SHORT-FORM VIDEO REELS -->
-    <section id="reels" class="mt-28">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <span class="text-lime-400 text-xs font-bold tracking-widest uppercase">02 / Short-Form Retention</span>
-          <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">EDITS THAT HOLD ATTENTION.</h2>
-        </div>
-        <p class="text-zinc-400 text-sm max-w-md">
-          Clean captions, dynamic sound design (SFX), and intentional pacing built for Instagram Reels & YouTube Shorts.
-        </p>
-      </div>
-
-      <!-- Dynamic Container for Reels -->
-      <div id="reel-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </section>
-
-    <!-- SECTION 3: PRICING -->
-    <section id="pricing" class="mt-28">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-lime-400 text-xs font-bold tracking-widest uppercase">03 / Simple Retainers & Packs</span>
-        <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">INVEST IN ATTENTION.</h2>
-        <p class="text-zinc-400 text-sm mt-3">Start with a single pack or lock in a monthly creative partner.</p>
-      </div>
-
-      <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-    </section>
-
-    <!-- FOOTER / CTA -->
-    <section class="mt-28 bento-card rounded-3xl p-8 sm:p-14 text-center border border-lime-400/20">
-      <h2 class="font-display text-3xl sm:text-5xl font-extrabold max-w-2xl mx-auto">
-        READY TO UPGRADE YOUR CONTENT?
-      </h2>
-      <p class="text-zinc-400 mt-4 max-w-xl mx-auto">
-        Send us your channel or Instagram link on WhatsApp. We'll tell you honestly what's holding your views back.
+  <main class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge"><span class="dot"></span> High-Conversion Creative Studio</div>
+      <h1>STOP LOSING VIEWS TO <span>WEAK PACKAGING.</span></h1>
+      <p class="hero-p">
+        We engineer high-CTR YouTube Thumbnails and high-retention Short-Form Reels for creators and brands who want real clicks, not just pretty designs.
       </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a id="footer-whatsapp" href="#" target="_blank" class="px-8 py-4 rounded-2xl bg-lime-400 text-black font-bold hover:bg-lime-300 transition">
+      <div class="btn-group">
+        <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20a%20free%20thumbnail/reel%20audit." target="_blank" class="btn-primary">
+          Get a Free Content Audit ↗
+        </a>
+        <a href="#work" class="btn-secondary">See Before / After Work ↓</a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">Psychology</div>
+          <div class="stat-lbl">Driven CTR Design</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val lime">24–48 Hr</div>
+          <div class="stat-lbl">Fast Turnaround</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Hook-First</div>
+          <div class="stat-lbl">Retention Pacing</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val lime">100%</div>
+          <div class="stat-lbl">Custom Visuals</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 01 / THUMBNAIL PORTFOLIO (YAHAN APNI PHOTOS KA NAAM SET HOTA HAI) -->
+    <!-- ================================================================= -->
+    <section id="work">
+      <div class="sec-tag">01 / Visual Packaging</div>
+      <h2>TAP TO SEE THE UPGRADE.</h2>
+      <p class="sec-sub">Tap between "AFTER" and "BEFORE" below to see how we transform ignored thumbnails into high-CTR click magnets.</p>
+
+      <!-- THUMBNAIL CASE STUDY 1 -->
+      <div class="bento-card">
+        <div class="thumb-grid">
+          <div>
+            <!-- Tap Buttons for Mobile & Desktop -->
+            <div class="img-tabs">
+              <button class="tab-btn active" onclick="switchImg('thumb1', 'after-1.jpg', 'AFTER (OUR REDESIGN)', this)">
+                ✨ AFTER (REDESIGN)
+              </button>
+              <button class="tab-btn" onclick="switchImg('thumb1', 'before-1.jpg', 'BEFORE (ORIGINAL)', this)">
+                ❌ SEE BEFORE
+              </button>
+            </div>
+
+            <!-- Image Box -->
+            <div class="thumb-frame">
+              <span id="badge-thumb1" class="img-badge">AFTER (OUR REDESIGN)</span>
+              <!-- NOTE: Make sure your uploaded image in GitHub is named after-1.jpg -->
+              <img id="img-thumb1" src="after-1.jpg" alt="600 Sq Ft Luxury House Thumbnail" onerror="this.src='https://placehold.co/1280x720/111115/a3e635?text=Upload+after-1.jpg+and+before-1.jpg+to+GitHub'">
+            </div>
+          </div>
+
+          <div>
+            <div class="sec-tag">ARCHITECTURE / REAL ESTATE</div>
+            <div class="case-title">600 Sq Ft Luxury House — CTR Redesign</div>
+            <div class="box-prob">
+              <strong>❌ The Problem (Before):</strong>
+              12 words ka cluttered text aur flat blue strip jisne 30% screen block kar rakhi thi. Mobile par padhna mushkil tha.
+            </div>
+            <div class="box-fix">
+              <strong>✅ The Fix (After):</strong>
+              Text ko 6 high-contrast words mein badla, background blur karke 3D depth di, aur rooftop pool par curiosity arrow lagaya.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Future mein 2nd thumbnail add karna ho toh upar wala <div class="bento-card">...</div> copy-paste kar dein -->
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 02 / VIDEO REELS SECTION (FUTURE MEIN YOUTUBE ID YAHAN DAALEIN)   -->
+    <!-- ================================================================= -->
+    <section id="reels">
+      <div class="sec-tag">02 / Short-Form Editing</div>
+      <h2>EDITS THAT HOLD ATTENTION.</h2>
+      <p class="sec-sub">Clean captions, crisp sound effects (SFX), and intentional pacing engineered for Instagram Reels & YouTube Shorts.</p>
+
+      <div class="reels-grid">
+        <!-- REEL CARD 1 -->
+        <div class="bento-card">
+          <div class="reel-box">
+            <!-- JAB VIDEO READY HO: Neeche wali 3 lines hata kar <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe> laga dein -->
+            <div class="play-icon">▶</div>
+            <div style="font-weight: 800; font-size: 14px;">Talking-Head Retention Edit</div>
+            <p style="font-size: 12px; color: var(--muted); margin-top: 6px;">Tap below to request a custom 15-sec sample edit on your raw footage.</p>
+          </div>
+          <div class="sec-tag">REELS / SHORTS</div>
+          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">Dynamic Captions & SFX Hooks</h3>
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20a%20Talking-Head%20Reel%20sample." target="_blank" class="btn-secondary" style="margin-top: 14px; padding: 11px; font-size: 13px;">
+            Request Sample on WhatsApp ↗
+          </a>
+        </div>
+
+        <!-- REEL CARD 2 -->
+        <div class="bento-card">
+          <div class="reel-box">
+            <div class="play-icon">▶</div>
+            <div style="font-weight: 800; font-size: 14px;">Brand & Commercial Cuts</div>
+            <p style="font-size: 12px; color: var(--muted); margin-top: 6px;">High-contrast color grading & speed-ramps for businesses.</p>
+          </div>
+          <div class="sec-tag">BRAND CONTENT</div>
+          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">Visual Storytelling & Pacing</h3>
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20a%20Brand%20Reel%20sample." target="_blank" class="btn-secondary" style="margin-top: 14px; padding: 11px; font-size: 13px;">
+            Request Sample on WhatsApp ↗
+          </a>
+        </div>
+
+        <!-- REEL CARD 3 -->
+        <div class="bento-card">
+          <div class="reel-box">
+            <div class="play-icon">▶</div>
+            <div style="font-weight: 800; font-size: 14px;">Documentary / Faceless Style</div>
+            <p style="font-size: 12px; color: var(--muted); margin-top: 6px;">Cinematic B-roll, motion graphics & deep audio design.</p>
+          </div>
+          <div class="sec-tag">YOUTUBE / NICHE</div>
+          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">High-AVD Storytelling</h3>
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20a%20Documentary%20Edit%20sample." target="_blank" class="btn-secondary" style="margin-top: 14px; padding: 11px; font-size: 13px;">
+            Request Sample on WhatsApp ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 03 / PRICING PLANS                                                -->
+    <!-- ================================================================= -->
+    <section id="pricing">
+      <div class="sec-tag">03 / Transparent Pricing</div>
+      <h2>START SMALL OR SCALE FAST.</h2>
+      <p class="sec-sub">No hidden fees. Test our quality with a starter pack or lock in monthly growth.</p>
+
+      <div class="price-grid">
+        <!-- PLAN 1 -->
+        <div class="bento-card">
+          <div class="sec-tag">01 / ENTRY PACK</div>
+          <h3 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Thumbnail Pack</h3>
+          <div class="price-amt">₹2,499 <span>/ 5 Thumbnails</span></div>
+          <ul class="feat-list">
+            <li><b>✓</b> 5 Custom High-CTR Thumbnails</li>
+            <li><b>✓</b> Click-Psychology & Hook Ideation</li>
+            <li><b>✓</b> 2 Variations for A/B Testing</li>
+            <li><b>✓</b> 24–48 Hour Fast Delivery</li>
+          </ul>
+          <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20order%20the%20Thumbnail%20Pack%20(Rs%202499)." target="_blank" class="btn-secondary">
+            Order Pack ↗
+          </a>
+        </div>
+
+        <!-- PLAN 2 (POPULAR) -->
+        <div class="bento-card popular">
+          <div class="sec-tag">02 / MOST POPULAR ⭐</div>
+          <h3 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Creator Growth</h3>
+          <div class="price-amt">₹9,999 <span>/ month</span></div>
+          <ul class="feat-list">
+            <li><b>✓</b> 8 High-Retention Reels Editing</li>
+            <li><b>✓</b> 4 Custom YouTube/Reel Thumbnails</li>
+            <li><b>✓</b> Dynamic Captions & SFX Design</li>
+            <li><b>✓</b> 2 Revisions per Video</li>
+          </ul>
+          <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20am%20interested%20in%20the%20Creator%20Growth%20Plan%20(Rs%209999)." target="_blank" class="btn-primary">
+            Choose Growth ↗
+          </a>
+        </div>
+
+        <!-- PLAN 3 -->
+        <div class="bento-card">
+          <div class="sec-tag">03 / FULL SCALE</div>
+          <h3 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Studio Partner</h3>
+          <div class="price-amt">₹19,999 <span>/ month</span></div>
+          <ul class="feat-list">
+            <li><b>✓</b> 15 Premium Reels / Shorts Editing</li>
+            <li><b>✓</b> 8 High-CTR YouTube Thumbnails</li>
+            <li><b>✓</b> Monthly Hook & Content Strategy</li>
+            <li><b>✓</b> Priority 24-Hr Turnaround</li>
+          </ul>
+          <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20am%20interested%20in%20the%20Studio%20Partner%20Plan%20(Rs%2019999)." target="_blank" class="btn-secondary">
+            Choose Partner ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <div class="cta-box">
+      <h2>WANT A FREE SAMPLE FIRST?</h2>
+      <p style="color: var(--muted); font-size: 14px; max-width: 480px; margin: 10px auto 24px;">
+        Send us your YouTube or Instagram link on WhatsApp. We'll audit your packaging and show you exactly where you're losing views.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20here%20is%20my%20channel%20link%20for%20a%20free%20audit:" target="_blank" class="btn-primary">
           Chat on WhatsApp ↗
         </a>
-        <a id="footer-instagram" href="#" target="_blank" class="px-8 py-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold transition">
+        <a href="https://www.instagram.com/zyronett.studio/" target="_blank" class="btn-secondary">
           Instagram ↗
         </a>
-        <a id="footer-email" href="#" class="px-8 py-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold transition">
-          Email Us ↗
-        </a>
       </div>
-    </section>
+    </div>
 
-    <footer class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
-      <div>© 2026 ZYRONETT STUDIO. ALL RIGHTS RESERVED.</div>
-      <div>BUILT FOR HIGH-CONVERTING CREATORS & BRANDS</div>
+    <footer>
+      © 2026 ZYRONETT STUDIO · INDEPENDENT CREATIVE PARTNER
     </footer>
   </main>
 
-  <!-- ===================================================================== -->
-  <!-- 🛠️ AAPKA CONTROL PANEL (FUTURE MEIN SIRF YAHAN EDIT KAREIN) 🛠️       -->
-  <!-- Upar ke kisi code ko chhedne ki zaroorat nahi hai!                     -->
-  <!-- ===================================================================== -->
   <script>
-    const STUDIO_DATA = {
-      // 1. Aapke Contact Links
-      whatsappNumber: "916391434871",
-      email: "studio.socialnett@gmail.com", // Jab naya email banayein, yahan badal dein
-      instagramUrl: "https://www.instagram.com/zyronett.studio/",
-
-      // 2. THUMBNAIL PORTFOLIO (Naya thumbnail add karne ke liye ek block copy-paste karein)
-      thumbnails: [
-        {
-          niche: "ARCHITECTURE / REAL ESTATE",
-          title: "600 Sq Ft Luxury House — CTR Transformation",
-          beforeImage: "before-1.jpg", // GitHub mein is naam se purani photo daalein
-          afterImage: "after-1.jpg",   // GitHub mein is naam se apni nayi photo daalein
-          problem: "12 words ka cluttered text aur flat blue strip jisne 30% screen block kar rakhi thi.",
-          solution: "Text ko 6 high-impact words mein badla, depth blur diya, aur rooftop pool par curiosity pointer lagaya."
-        }
-        // Future mein 2nd thumbnail add karna ho, toh upar wale { se } tak copy karke neeche comma (,) laga kar paste kar dein!
-      ],
-
-      // 3. VIDEO REELS PORTFOLIO
-      // Tip: Apni edited Reel YouTube par 'Unlisted' upload karein aur uska 11-character Video ID yahan daalein.
-      // Jab tak video ready na ho, youtubeId ko "" (khali) chhod dein, website par clean 'Coming Soon / Request Sample' card dikhega!
-      reels: [
-        {
-          tag: "TALKING HEAD / RETENTION",
-          title: "Dynamic Pacing, Captions & SFX Hook",
-          youtubeId: "", // Example: "dQw4w9WgXcQ" (Apni YouTube Short/Video ka ID yahan daalein)
-          description: "Fast-paced cuts, motion graphics, and sound design built to stop the scroll in the first 3 seconds."
-        },
-        {
-          tag: "BRAND / COMMERCIAL REEL",
-          title: "Visual Storytelling & Color Grading",
-          youtubeId: "", // Jab 2nd video ban jaye, uska ID yahan daalein
-          description: "High-contrast aesthetic grading with clean typography overlays for premium brand positioning."
-        },
-        {
-          tag: "YOUTUBE / NICHE EDIT",
-          title: "Cinematic B-Roll & Audio Sync",
-          youtubeId: "", // Jab 3rd video ban jaye, uska ID yahan daalein
-          description: "Engineered for maximum average view duration (AVD) using visual pattern interrupts."
-        }
-      ],
-
-      // 4. PRICING PLANS (Aap jab chahein price ya features yahan se badal sakte hain)
-      pricing: [
-        {
-          badge: "01 / PACKAGING STARTER",
-          name: "Thumbnail Pack",
-          price: "₹2,499",
-          period: "/ 5 Thumbnails",
-          desc: "Best for YouTubers who want to test high-CTR packaging immediately.",
-          features: [
-            "5 Custom High-CTR Thumbnails",
-            "Click-Psychology & Hook Ideation",
-            "2 Variations for A/B Testing",
-            "24–48 Hour Delivery"
-          ],
-          popular: false
-        },
-        {
-          badge: "02 / MOST POPULAR",
-          name: "Creator Growth",
-          price: "₹9,999",
-          period: "/ month",
-          desc: "Complete short-form editing + visual packaging for consistent growth.",
-          features: [
-            "8 High-Retention Reels Editing",
-            "4 Custom YouTube/Reel Covers",
-            "Dynamic Captions & SFX Design",
-            "2 Revisions per Asset"
-          ],
-          popular: true
-        },
-        {
-          badge: "03 / FULL SCALE",
-          name: "Studio Partner",
-          price: "₹19,999",
-          period: "/ month",
-          desc: "For established creators & brands scaling across YouTube and Instagram.",
-          features: [
-            "15 Premium Reels / Shorts Editing",
-            "8 High-CTR YouTube Thumbnails",
-            "Monthly Hook & Content Calendar",
-            "Priority Turnaround & WhatsApp Support"
-          ],
-          popular: false
-        }
-      ]
-    };
-
-    // =====================================================================
-    // ⚙️ ENGINE CODE (ISE CHHEDNE KI ZAROORAT NAHI HAI)
-    // =====================================================================
-    const waBase = `https://wa.me/${STUDIO_DATA.whatsappNumber}?text=`;
-    document.getElementById('nav-whatsapp').href = waBase + encodeURIComponent("Hi ZyroNett Studio, I checked your website and want to discuss a project.");
-    document.getElementById('hero-whatsapp').href = waBase + encodeURIComponent("Hi ZyroNett Studio, I'd like to get a free audit for my content.");
-    document.getElementById('footer-whatsapp').href = waBase + encodeURIComponent("Hi ZyroNett Studio, let's work together!");
-    document.getElementById('footer-instagram').href = STUDIO_DATA.instagramUrl;
-    document.getElementById('footer-email').href = `mailto:${STUDIO_DATA.email}`;
-
-    // Render Thumbnails with Interactive Before/After Slider
-    const thumbGrid = document.getElementById('thumbnail-grid');
-    STUDIO_DATA.thumbnails.forEach((item, index) => {
-      thumbGrid.innerHTML += `
-        <div class="bento-card rounded-3xl p-6 sm:p-8">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-7 relative rounded-2xl overflow-hidden border border-white/10 aspect-video select-none bg-zinc-900">
-              <!-- AFTER IMAGE (Base) -->
-              <img src="${item.afterImage}" alt="After Redesign" class="w-full h-full object-cover block">
-              <span class="absolute top-3 right-3 z-20 px-3 py-1 rounded-full bg-lime-400 text-black font-extrabold text-xs">AFTER (OUR REDESIGN)</span>
-              
-              <!-- BEFORE IMAGE (Clipped Overlay) -->
-              <div id="before-wrap-${index}" class="absolute inset-0 overflow-hidden" style="width: 50%;">
-                <img src="${item.beforeImage}" alt="Before Redesign" class="w-full h-full object-cover block max-w-none" style="width: 100%; height: 100%;">
-                <span class="absolute top-3 left-3 z-20 px-3 py-1 rounded-full bg-black/80 text-white border border-white/20 font-bold text-xs">BEFORE</span>
-              </div>
-
-              <!-- DIVIDER LINE -->
-              <div id="divider-${index}" class="absolute top-0 bottom-0 w-1 bg-lime-400 z-20 pointer-events-none flex items-center justify-center" style="left: 50%;">
-                <div class="w-9 h-9 rounded-full bg-lime-400 text-black font-extrabold flex items-center justify-center shadow-xl text-xs">↔</div>
-              </div>
-
-              <!-- RANGE INPUT -->
-              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="
-                document.getElementById('before-wrap-${index}').style.width = this.value + '%';
-                document.getElementById('divider-${index}').style.left = this.value + '%';
-              ">
-            </div>
-
-            <div class="lg:col-span-5 space-y-5">
-              <div class="text-xs font-bold tracking-widest text-lime-400 uppercase">${item.niche}</div>
-              <h3 class="text-2xl sm:text-3xl font-bold leading-tight">${item.title}</h3>
-              <div class="space-y-3 text-sm">
-                <div class="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-zinc-300">
-                  <strong class="text-red-400 block mb-1">❌ The Problem (Before):</strong> ${item.problem}
-                </div>
-                <div class="p-4 rounded-2xl bg-lime-400/10 border border-lime-400/20 text-zinc-300">
-                  <strong class="text-lime-400 block mb-1">✅ The Fix (After):</strong> ${item.solution}
-                </div>
-              </div>
-              <a href="${waBase + encodeURIComponent('Hi, I saw your ' + item.title + ' redesign and want similar thumbnails for my channel.')}" target="_blank" class="inline-block pt-2 text-sm font-bold text-white hover:text-lime-400 transition">
-                Want this for your channel? Let's talk ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
-    });
-
-    // Render Reels
-    const reelGrid = document.getElementById('reel-grid');
-    STUDIO_DATA.reels.forEach((reel) => {
-      const videoContent = reel.youtubeId
-        ? `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${reel.youtubeId}?rel=0&modestbranding=1" title="${reel.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-        : `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-zinc-900 to-black">
-             <div class="w-14 h-14 rounded-2xl bg-lime-400/10 border border-lime-400/30 text-lime-400 flex items-center justify-center text-2xl mb-4">▶</div>
-             <div class="text-sm font-bold text-white">Sample Reel Ready on Request</div>
-             <p class="text-xs text-zinc-500 mt-1">Click below to get a custom 15-sec sample edit for your raw footage.</p>
-           </div>`;
-
-      reelGrid.innerHTML += `
-        <div class="bento-card rounded-3xl p-5 flex flex-col justify-between">
-          <div>
-            <div class="aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 bg-black mb-5">
-              ${videoContent}
-            </div>
-            <span class="text-[11px] font-bold tracking-widest text-lime-400 uppercase">${reel.tag}</span>
-            <h3 class="text-xl font-bold mt-1">${reel.title}</h3>
-            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">${reel.description}</p>
-          </div>
-          <a href="${waBase + encodeURIComponent('Hi, I want to see a sample for ' + reel.title)}" target="_blank" class="mt-5 w-full py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-lime-400 hover:text-black text-center text-xs font-bold transition">
-            Request Custom Sample ↗
-          </a>
-        </div>
-      `;
-    });
-
-    // Render Pricing
-    const pricingGrid = document.getElementById('pricing-grid');
-    STUDIO_DATA.pricing.forEach((plan) => {
-      const borderClass = plan.popular ? "border-lime-400/50 ring-1 ring-lime-400/30" : "border-white/10";
-      const btnClass = plan.popular ? "bg-lime-400 text-black hover:bg-lime-300" : "bg-white/10 text-white hover:bg-white hover:text-black";
-      
-      pricingGrid.innerHTML += `
-        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between border ${borderClass}">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold tracking-wider text-zinc-400 uppercase">${plan.badge}</span>
-              ${plan.popular ? '<span class="px-2.5 py-1 rounded-full bg-lime-400/20 text-lime-300 text-[10px] font-extrabold uppercase">Most Popular</span>' : ''}
-            </div>
-            <h3 class="text-2xl font-bold mt-3">${plan.name}</h3>
-            <p class="text-xs text-zinc-400 mt-1">${plan.desc}</p>
-            <div class="mt-6 flex items-baseline gap-1">
-     
+    function switchImg(id, imgSrc, badgeText, btn) {
+      document.getElementById('img-' + id).src = imgSrc;
+      document.getElementById('badge-' + id).innerText = badgeText;
+      const buttons = btn.parentElement.querySelectorAll('.tab-btn');
+      buttons.forEach(b => b.classList.remove('ac
