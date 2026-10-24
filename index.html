@@ -1,183 +1,389 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0d0b">
-  <meta name="description" content="ZyroNett Studio helps brands and creators grow with short-form video editing, social media management, and creative content.">
-  <title>ZyroNett Studio — Creative That Moves Brands</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZyroNett Studio — High-CTR Packaging & Retention Editing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050505;
+      color: #f4f4f5;
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Syne', sans-serif; }
+    .bento-card {
+      background: linear-gradient(180deg, rgba(24,24,27,0.7) 0%, rgba(9,9,11,0.9) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-card:hover {
+      border-color: rgba(163, 230, 53, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(163, 230, 53, 0.1);
+    }
+    .glow-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(163, 230, 53, 0.15), transparent 60%);
+    }
+    /* Custom Range Slider for Before/After */
+    .slider-input {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 30;
+      cursor: ew-resize;
+    }
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 4px;
+      height: 100vh;
+      background: #a3e635;
+      cursor: ew-resize;
+    }
+  </style>
 </head>
-<body>
-  <div class="announcement"><span class="pulse"></span> CREATIVE PARTNER FOR AMBITIOUS BRANDS <span class="announcement-right">INDEPENDENT STUDIO · INDIA</span></div>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="ZyroNett Studio home">
-      <span class="brand-mark">Z<span>N</span><i></i></span>
-      <span class="brand-name">ZYRONETT <b>STUDIO</b></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-    <nav id="mainNav">
-  <a href="#services">Services</a><a href="#work">Selected work</a><a href="#process">Our process</a><a href="#pricing">Pricing</a>
-      <a class="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
-    </nav>
+<body class="selection:bg-lime-400 selection:text-black">
+
+  <!-- TOP GLOW -->
+  <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-lime-400 text-black font-extrabold flex items-center justify-center text-lg tracking-tighter">ZN</div>
+        <span class="font-bold tracking-tight text-lg">ZYRONETT <span class="text-lime-400 font-normal">STUDIO</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-zinc-400 font-medium">
+        <a href="#thumbnails" class="hover:text-white transition">Thumbnails</a>
+        <a href="#reels" class="hover:text-white transition">Video Edits</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+      </nav>
+      <a id="nav-whatsapp" href="#" target="_blank" class="px-5 py-2.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-lime-400 transition">
+        Book a Call ↗
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero section-wrap" id="home">
-      <div class="hero-grid-mark" aria-hidden="true"></div>
-      <div class="hero-copy">
-        <div class="eyebrow"><span>01 / CREATIVE STUDIO</span><span class="eyebrow-line"></span><span>CONTENT THAT CONNECTS</span></div>
-        <h1>WE DON'T<br>JUST <span class="outline-word">POST.</span><br>WE CREATE<br><span class="lime-word">IMPACT<span class="period">.</span></span></h1>
-        <p class="hero-description">We help brands and creators show up with clarity, consistency, and content people actually want to watch.</p>
-        <div class="hero-actions">
-          <a class="button button-lime" href="#contact">Let’s build something <span>↗</span></a>
-          <a class="text-link" href="#work">Explore our work <span>↓</span></a>
-        </div>
-        <div class="hero-footnote"><span class="mini-star">✳</span> STRATEGY-LED. DESIGN-DRIVEN. BUILT FOR ATTENTION.</div>
-      </div>
-      <div class="hero-art" aria-label="Abstract graphic composition">
-        <div class="art-topline"><span>ZN / 001</span><span>MAKE IT MATTER</span></div>
-        <div class="art-frame">
-          <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
-          <div class="art-cross cross-a"></div><div class="art-cross cross-b"></div>
-          <div class="art-block block-one"></div><div class="art-block block-two"></div>
-          <div class="art-center"><span>CONTENT</span><strong>WITH<br>PURPOSE<span>.</span></strong><small>ZYRONETT STUDIO</small></div>
-          <div class="art-index">CREATIVE<br>01—04</div>
-          <div class="art-stamp">MAKE<br>NOISE<span>↗</span></div>
-        </div>
-        <div class="art-bottomline"><span>IDEAS INTO EXECUTION</span><span>EST. FOR WHAT'S NEXT</span></div>
-      </div>
-      <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>01 — 04</span></div>
-    </section>
+  <!-- HERO SECTION -->
+  <main class="relative z-10 max-w-6xl mx-auto px-5 pt-16 pb-24">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-lime-400/30 bg-lime-400/10 text-lime-300 text-xs font-semibold tracking-wide uppercase mb-6">
+      <span class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></span>
+      High-Conversion Creative Partner
+    </div>
 
-    <section class="ticker" aria-label="Studio capabilities"><div class="ticker-track"><span>SHORT-FORM VIDEO</span><b>✳</b><span>SOCIAL MEDIA</span><b>✳</b><span>CREATIVE DIRECTION</span><b>✳</b><span>CONTENT STRATEGY</span><b>✳</b><span>SHORT-FORM VIDEO</span><b>✳</b><span>SOCIAL MEDIA</span><b>✳</b><span>CREATIVE DIRECTION</span><b>✳</b><span>CONTENT STRATEGY</span><b>✳</b></div></section>
+    <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] max-w-4xl">
+      STOP LOSING VIEWS TO <span class="text-lime-400">WEAK PACKAGING.</span>
+    </h1>
 
-    <section class="services section-wrap" id="services">
-      <div class="section-heading">
-        <div><div class="eyebrow"><span>02 / WHAT WE DO</span></div><h2>GOOD CONTENT.<br><span class="muted">CLEAR PURPOSE.</span></h2></div>
-        <p>From the first idea to the final post, we make your brand easier to notice, understand, and remember.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card"><div class="service-top"><span>01</span><span class="service-icon">↗</span></div><div class="service-symbol symbol-play">▶</div><h3>Short-form<br>video editing</h3><p>Reels and short videos with intentional pacing, clean captions, and a story worth watching.</p><a href="#contact" class="card-link">LET’S TALK <span>↗</span></a></article>
-        <article class="service-card featured"><div class="service-top"><span>02</span><span class="service-icon">↗</span></div><div class="service-symbol symbol-social"><span></span><span></span><span></span><span></span></div><h3>Social media<br>management</h3><p>A more consistent brand presence with content planning, publishing support, and direction.</p><a href="#contact" class="card-link">LET’S TALK <span>↗</span></a></article>
-        <article class="service-card"><div class="service-top"><span>03</span><span class="service-icon">↗</span></div><div class="service-symbol symbol-type">Aa</div><h3>Social media<br>creatives</h3><p>On-brand graphics for promotions, announcements, educational posts, and campaigns.</p><a href="#contact" class="card-link">LET’S TALK <span>↗</span></a></article>
-        <article class="service-card"><div class="service-top"><span>04</span><span class="service-icon">↗</span></div><div class="service-symbol symbol-plan">▤</div><h3>Content<br>planning</h3><p>Practical content calendars and creative ideas that make showing up easier.</p><a href="#contact" class="card-link">LET’S TALK <span>↗</span></a></article>
-      </div>
-    </section>
+    <p class="mt-6 text-zinc-400 text-lg sm:text-xl max-w-2xl leading-relaxed">
+      We engineer high-CTR YouTube Thumbnails and high-retention Short-Form Videos for ambitious creators and brands who want measurable growth, not just "pretty designs."
+    </p>
 
-    <section class="work section-wrap" id="work">
-      <div class="section-heading work-heading">
-        <div><div class="eyebrow"><span>03 / SELECTED WORK</span></div><h2>SHOW THE WORK.<br><span class="muted">MAKE IT SPEAK.</span></h2></div>
-        <p>Our showcase is being built. These panels are ready for your real reel edits, designs, and campaign concepts.</p>
-      </div>
-      <div class="work-grid">
-        <a class="work-card work-large" href="#contact"><div class="work-visual visual-video"><span class="visual-label">CONCEPT 01 / VIDEO</span><div class="play-button">▶</div><div class="visual-giant">CUT<br>THROUGH<span>.</span></div><span class="visual-corner">REEL EDIT</span></div><div class="work-meta"><div><span>SHORT-FORM VIDEO</span><h3>Reel editing showcase</h3></div><span class="work-arrow">↗</span></div></a>
-        <a class="work-card" href="#contact"><div class="work-visual visual-design"><span class="visual-label">CONCEPT 02 / DESIGN</span><div class="design-poster"><small>THE NEW STANDARD</small><strong>STAND<br>OUT.</strong><span>BUILD A BRAND PEOPLE REMEMBER.</span><i>ZN / CREATIVE</i></div></div><div class="work-meta"><div><span>SOCIAL CREATIVE</span><h3>Campaign design concept</h3></div><span class="work-arrow">↗</span></div></a>
-        <a class="work-card" href="#contact"><div class="work-visual visual-strategy"><span class="visual-label">CONCEPT 03 / STRATEGY</span><div class="strategy-sheet"><div>CONTENT<br>PLAN <b>→</b></div><span>01 / PLAN</span><span>02 / CREATE</span><span>03 / PUBLISH</span><span>04 / LEARN</span></div></div><div class="work-meta"><div><span>CONTENT SYSTEM</span><h3>Content package concept</h3></div><span class="work-arrow">↗</span></div></a>
-      </div>
-      <p class="work-note"><span>✳</span> These are concept visuals, not client case studies. Replace them with your real work before publishing.</p>
-    </section>
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <a id="hero-whatsapp" href="#" target="_blank" class="px-8 py-4 rounded-2xl bg-lime-400 text-black font-bold text-base hover:bg-lime-300 transition shadow-lg shadow-lime-400/20">
+        Get a Free Thumbnail/Reel Audit ↗
+      </a>
+      <a href="#thumbnails" class="px-8 py-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold text-base transition">
+        See Live Before/After ↓
+      </a>
+    </div>
 
-    <section class="manifesto">
-      <div class="manifesto-inner section-wrap"><div class="eyebrow"><span>THE STUDIO POINT OF VIEW</span></div><p>ATTENTION IS EARNED.<br><span>TRUST IS BUILT.</span><br>BRANDS GROW WITH <em>INTENTION.</em></p><div class="manifesto-bottom"><span>LESS RANDOM POSTING. MORE MEANINGFUL CONTENT.</span><span>— ZYRONETT STUDIO</span></div></div>
-    </section>
-
-    <section class="process section-wrap" id="process">
-      <div class="section-heading"><div><div class="eyebrow"><span>04 / HOW WE WORK</span></div><h2>FROM BRIEF<br>TO <span class="muted">BIG PICTURE.</span></h2></div><p>A clear process keeps the work focused, feedback useful, and delivery predictable.</p></div>
-      <div class="process-list">
-        <div class="process-row"><span class="process-number">01</span><h3>Discover</h3><p>We learn about your business, audience, goals, and what success means to you.</p><span class="process-symbol">↘</span></div>
-        <div class="process-row"><span class="process-number">02</span><h3>Plan</h3><p>We agree on deliverables, creative direction, timelines, and the workflow.</p><span class="process-symbol">↘</span></div>
-        <div class="process-row"><span class="process-number">03</span><h3>Create</h3><p>We turn the plan into thoughtful edits, visuals, and content assets.</p><span class="process-symbol">↘</span></div>
-        <div class="process-row"><span class="process-number">04</span><h3>Review</h3><p>You review the work and share clear, consolidated feedback.</p><span class="process-symbol">↘</span></div>
-        <div class="process-row"><span class="process-number">05</span><h3>Deliver</h3><p>Approved files are delivered in the agreed format, ready for your workflow.</p><span class="process-symbol">↗</span></div>
+    <!-- QUICK STATS / TRUST BAR -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bento-card p-5 rounded-2xl">
+        <div class="text-2xl sm:text-3xl font-extrabold text-white">Psychology</div>
+        <div class="text-xs text-zinc-400 mt-1">Driven CTR Design</div>
       </div>
-    </section>
+      <div class="bento-card p-5 rounded-2xl">
+        <div class="text-2xl sm:text-3xl font-extrabold text-lime-400">24–48 Hr</div>
+        <div class="text-xs text-zinc-400 mt-1">Fast Turnaround Time</div>
+      </div>
+      <div class="bento-card p-5 rounded-2xl">
+        <div class="text-2xl sm:text-3xl font-extrabold text-white">Hook-First</div>
+        <div class="text-xs text-zinc-400 mt-1">Retention Video Pacing</div>
+      </div>
+      <div class="bento-card p-5 rounded-2xl">
+        <div class="text-2xl sm:text-3xl font-extrabold text-lime-400">100%</div>
+        <div class="text-xs text-zinc-400 mt-1">Custom Visual Assets</div>
+      </div>
+    </div>
 
-    
-    <section class="pricing section-wrap" id="pricing">
-      <div class="section-heading">
+    <!-- SECTION 1: INTERACTIVE THUMBNAIL TRANSFORMATIONS -->
+    <section id="thumbnails" class="mt-28">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <div class="eyebrow"><span>05 / INVEST IN YOUR BRAND</span></div>
-          <h2>PRICING THAT<br><span class="muted">MOVES YOU FORWARD.</span></h2>
+          <span class="text-lime-400 text-xs font-bold tracking-widest uppercase">01 / Visual Packaging</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">DRAG TO SEE THE UPGRADE.</h2>
         </div>
-        <p>Clear deliverables. Creative execution. A plan that fits your goals.</p>
+        <p class="text-zinc-400 text-sm max-w-md">
+          Slide left and right on the images below to see how we turn cluttered, ignored thumbnails into click-magnets.
+        </p>
       </div>
 
-      <div class="pricing-grid">
-        <article class="pricing-card">
-          <span class="pricing-label">01 / STARTER</span>
-          <h3>Starter</h3>
-          <p class="pricing-description">For creators and small businesses.</p>
-          <div class="pricing-price">₹9,999<span>/month</span></div>
-          <div class="pricing-divider"></div>
-          <ul>
-            <li>8 Reels editing</li>
-            <li>Captions and subtitles</li>
-            <li>Basic sound and colour correction</li>
-            <li>1 revision per Reel</li>
-          </ul>
-          <a class="button button-lime pricing-button" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%27m%20interested%20in%20the%20Starter%20plan.">Choose Starter ↗</a>
-        </article>
-
-        <article class="pricing-card pricing-card-featured">
-          <span class="pricing-label">02 / MOST POPULAR</span>
-          <h3>Growth<span class="pricing-star">✳</span></h3>
-          <p class="pricing-description">For brands ready to grow consistently.</p>
-          <div class="pricing-price">₹19,999<span>/month</span></div>
-          <div class="pricing-divider"></div>
-          <ul>
-            <li>12 Reels editing</li>
-            <li>Content planning</li>
-            <li>Captions and subtitles</li>
-            <li>Monthly content calendar</li>
-            <li>2 revisions per Reel</li>
-          </ul>
-          <a class="button button-lime pricing-button" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%27m%20interested%20in%20the%20Growth%20plan.">Choose Growth ↗</a>
-        </article>
-
-        <article class="pricing-card">
-          <span class="pricing-label">03 / PRO</span>
-          <h3>Pro</h3>
-          <p class="pricing-description">For established brands and personal brands.</p>
-          <div class="pricing-price">₹34,999<span>/month</span></div>
-          <div class="pricing-divider"></div>
-          <ul>
-            <li>16 Reels editing</li>
-            <li>Premium editing and motion graphics</li>
-            <li>Monthly content strategy</li>
-            <li>Scheduling on 1 platform</li>
-            <li>Monthly performance report</li>
-          </ul>
-          <a class="button button-lime pricing-button" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%27m%20interested%20in%20the%20Pro%20plan.">Choose Pro ↗</a>
-        </article>
-      </div>
-
-      <p class="pricing-note">All plans are monthly. Video shoots, ad spend, influencer fees and additional revisions are charged separately where applicable.</p>
+      <!-- Dynamic Container for Thumbnails -->
+      <div id="thumbnail-grid" class="grid grid-cols-1 gap-10"></div>
     </section>
-    
-    <section class="contact section-wrap" id="contact">
-      <div class="contact-panel">
-        <div class="contact-top"><span>HAVE A PROJECT IN MIND?</span><span>LET'S MAKE IT COUNT ↘</span></div>
-        <h2>YOUR BRAND<br>DESERVES TO<br><span>STAND OUT.</span></h2>
-        <p>Tell us what you're building. We'll talk through the goal and find the right creative support.</p>
-     <a class="button button-lime" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">WhatsApp Us ↗</a>
-<a class="text-link" href="https://www.instagram.com/zyronett.studio/" target="_blank" rel="noopener">Instagram ↗</a>
-<a class="text-link" href="mailto:studio.socialnett@gmail.com">Email Us ↗</a>
-        <div class="contact-orbit" aria-hidden="true"><span>ZN</span><i>✳</i></div>
-        <div class="contact-bottom"><span>NO BIG PROMISES. JUST THOUGHTFUL WORK.</span><span>LET'S BUILD ↗</span></div>
+
+    <!-- SECTION 2: SHORT-FORM VIDEO REELS -->
+    <section id="reels" class="mt-28">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-lime-400 text-xs font-bold tracking-widest uppercase">02 / Short-Form Retention</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">EDITS THAT HOLD ATTENTION.</h2>
+        </div>
+        <p class="text-zinc-400 text-sm max-w-md">
+          Clean captions, dynamic sound design (SFX), and intentional pacing built for Instagram Reels & YouTube Shorts.
+        </p>
+      </div>
+
+      <!-- Dynamic Container for Reels -->
+      <div id="reel-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- SECTION 3: PRICING -->
+    <section id="pricing" class="mt-28">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-lime-400 text-xs font-bold tracking-widest uppercase">03 / Simple Retainers & Packs</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">INVEST IN ATTENTION.</h2>
+        <p class="text-zinc-400 text-sm mt-3">Start with a single pack or lock in a monthly creative partner.</p>
+      </div>
+
+      <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- FOOTER / CTA -->
+    <section class="mt-28 bento-card rounded-3xl p-8 sm:p-14 text-center border border-lime-400/20">
+      <h2 class="font-display text-3xl sm:text-5xl font-extrabold max-w-2xl mx-auto">
+        READY TO UPGRADE YOUR CONTENT?
+      </h2>
+      <p class="text-zinc-400 mt-4 max-w-xl mx-auto">
+        Send us your channel or Instagram link on WhatsApp. We'll tell you honestly what's holding your views back.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a id="footer-whatsapp" href="#" target="_blank" class="px-8 py-4 rounded-2xl bg-lime-400 text-black font-bold hover:bg-lime-300 transition">
+          Chat on WhatsApp ↗
+        </a>
+        <a id="footer-instagram" href="#" target="_blank" class="px-8 py-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold transition">
+          Instagram ↗
+        </a>
+        <a id="footer-email" href="#" class="px-8 py-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold transition">
+          Email Us ↗
+        </a>
       </div>
     </section>
+
+    <footer class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+      <div>© 2026 ZYRONETT STUDIO. ALL RIGHTS RESERVED.</div>
+      <div>BUILT FOR HIGH-CONVERTING CREATORS & BRANDS</div>
+    </footer>
   </main>
 
-  <footer class="footer section-wrap">
-    <a class="brand" href="#home"><span class="brand-mark">Z<span>N</span><i></i></span><span class="brand-name">ZYRONETT <b>STUDIO</b></span></a>
-    <p>Creative content. Strategic execution. Stronger brands.</p>
-    <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
-    <div class="footer-bottom"><span>© <span id="year"></span> ZYRONETT STUDIO</span><span>INDEPENDENT CREATIVE STUDIO</span><a href="#home">BACK TO TOP ↑</a></div>
-  </footer>
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- ===================================================================== -->
+  <!-- 🛠️ AAPKA CONTROL PANEL (FUTURE MEIN SIRF YAHAN EDIT KAREIN) 🛠️       -->
+  <!-- Upar ke kisi code ko chhedne ki zaroorat nahi hai!                     -->
+  <!-- ===================================================================== -->
+  <script>
+    const STUDIO_DATA = {
+      // 1. Aapke Contact Links
+      whatsappNumber: "916391434871",
+      email: "studio.socialnett@gmail.com", // Jab naya email banayein, yahan badal dein
+      instagramUrl: "https://www.instagram.com/zyronett.studio/",
+
+      // 2. THUMBNAIL PORTFOLIO (Naya thumbnail add karne ke liye ek block copy-paste karein)
+      thumbnails: [
+        {
+          niche: "ARCHITECTURE / REAL ESTATE",
+          title: "600 Sq Ft Luxury House — CTR Transformation",
+          beforeImage: "before-1.jpg", // GitHub mein is naam se purani photo daalein
+          afterImage: "after-1.jpg",   // GitHub mein is naam se apni nayi photo daalein
+          problem: "12 words ka cluttered text aur flat blue strip jisne 30% screen block kar rakhi thi.",
+          solution: "Text ko 6 high-impact words mein badla, depth blur diya, aur rooftop pool par curiosity pointer lagaya."
+        }
+        // Future mein 2nd thumbnail add karna ho, toh upar wale { se } tak copy karke neeche comma (,) laga kar paste kar dein!
+      ],
+
+      // 3. VIDEO REELS PORTFOLIO
+      // Tip: Apni edited Reel YouTube par 'Unlisted' upload karein aur uska 11-character Video ID yahan daalein.
+      // Jab tak video ready na ho, youtubeId ko "" (khali) chhod dein, website par clean 'Coming Soon / Request Sample' card dikhega!
+      reels: [
+        {
+          tag: "TALKING HEAD / RETENTION",
+          title: "Dynamic Pacing, Captions & SFX Hook",
+          youtubeId: "", // Example: "dQw4w9WgXcQ" (Apni YouTube Short/Video ka ID yahan daalein)
+          description: "Fast-paced cuts, motion graphics, and sound design built to stop the scroll in the first 3 seconds."
+        },
+        {
+          tag: "BRAND / COMMERCIAL REEL",
+          title: "Visual Storytelling & Color Grading",
+          youtubeId: "", // Jab 2nd video ban jaye, uska ID yahan daalein
+          description: "High-contrast aesthetic grading with clean typography overlays for premium brand positioning."
+        },
+        {
+          tag: "YOUTUBE / NICHE EDIT",
+          title: "Cinematic B-Roll & Audio Sync",
+          youtubeId: "", // Jab 3rd video ban jaye, uska ID yahan daalein
+          description: "Engineered for maximum average view duration (AVD) using visual pattern interrupts."
+        }
+      ],
+
+      // 4. PRICING PLANS (Aap jab chahein price ya features yahan se badal sakte hain)
+      pricing: [
+        {
+          badge: "01 / PACKAGING STARTER",
+          name: "Thumbnail Pack",
+          price: "₹2,499",
+          period: "/ 5 Thumbnails",
+          desc: "Best for YouTubers who want to test high-CTR packaging immediately.",
+          features: [
+            "5 Custom High-CTR Thumbnails",
+            "Click-Psychology & Hook Ideation",
+            "2 Variations for A/B Testing",
+            "24–48 Hour Delivery"
+          ],
+          popular: false
+        },
+        {
+          badge: "02 / MOST POPULAR",
+          name: "Creator Growth",
+          price: "₹9,999",
+          period: "/ month",
+          desc: "Complete short-form editing + visual packaging for consistent growth.",
+          features: [
+            "8 High-Retention Reels Editing",
+            "4 Custom YouTube/Reel Covers",
+            "Dynamic Captions & SFX Design",
+            "2 Revisions per Asset"
+          ],
+          popular: true
+        },
+        {
+          badge: "03 / FULL SCALE",
+          name: "Studio Partner",
+          price: "₹19,999",
+          period: "/ month",
+          desc: "For established creators & brands scaling across YouTube and Instagram.",
+          features: [
+            "15 Premium Reels / Shorts Editing",
+            "8 High-CTR YouTube Thumbnails",
+            "Monthly Hook & Content Calendar",
+            "Priority Turnaround & WhatsApp Support"
+          ],
+          popular: false
+        }
+      ]
+    };
+
+    // =====================================================================
+    // ⚙️ ENGINE CODE (ISE CHHEDNE KI ZAROORAT NAHI HAI)
+    // =====================================================================
+    const waBase = `https://wa.me/${STUDIO_DATA.whatsappNumber}?text=`;
+    document.getElementById('nav-whatsapp').href = waBase + encodeURIComponent("Hi ZyroNett Studio, I checked your website and want to discuss a project.");
+    document.getElementById('hero-whatsapp').href = waBase + encodeURIComponent("Hi ZyroNett Studio, I'd like to get a free audit for my content.");
+    document.getElementById('footer-whatsapp').href = waBase + encodeURIComponent("Hi ZyroNett Studio, let's work together!");
+    document.getElementById('footer-instagram').href = STUDIO_DATA.instagramUrl;
+    document.getElementById('footer-email').href = `mailto:${STUDIO_DATA.email}`;
+
+    // Render Thumbnails with Interactive Before/After Slider
+    const thumbGrid = document.getElementById('thumbnail-grid');
+    STUDIO_DATA.thumbnails.forEach((item, index) => {
+      thumbGrid.innerHTML += `
+        <div class="bento-card rounded-3xl p-6 sm:p-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 relative rounded-2xl overflow-hidden border border-white/10 aspect-video select-none bg-zinc-900">
+              <!-- AFTER IMAGE (Base) -->
+              <img src="${item.afterImage}" alt="After Redesign" class="w-full h-full object-cover block">
+              <span class="absolute top-3 right-3 z-20 px-3 py-1 rounded-full bg-lime-400 text-black font-extrabold text-xs">AFTER (OUR REDESIGN)</span>
+              
+              <!-- BEFORE IMAGE (Clipped Overlay) -->
+              <div id="before-wrap-${index}" class="absolute inset-0 overflow-hidden" style="width: 50%;">
+                <img src="${item.beforeImage}" alt="Before Redesign" class="w-full h-full object-cover block max-w-none" style="width: 100%; height: 100%;">
+                <span class="absolute top-3 left-3 z-20 px-3 py-1 rounded-full bg-black/80 text-white border border-white/20 font-bold text-xs">BEFORE</span>
+              </div>
+
+              <!-- DIVIDER LINE -->
+              <div id="divider-${index}" class="absolute top-0 bottom-0 w-1 bg-lime-400 z-20 pointer-events-none flex items-center justify-center" style="left: 50%;">
+                <div class="w-9 h-9 rounded-full bg-lime-400 text-black font-extrabold flex items-center justify-center shadow-xl text-xs">↔</div>
+              </div>
+
+              <!-- RANGE INPUT -->
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="
+                document.getElementById('before-wrap-${index}').style.width = this.value + '%';
+                document.getElementById('divider-${index}').style.left = this.value + '%';
+              ">
+            </div>
+
+            <div class="lg:col-span-5 space-y-5">
+              <div class="text-xs font-bold tracking-widest text-lime-400 uppercase">${item.niche}</div>
+              <h3 class="text-2xl sm:text-3xl font-bold leading-tight">${item.title}</h3>
+              <div class="space-y-3 text-sm">
+                <div class="p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-zinc-300">
+                  <strong class="text-red-400 block mb-1">❌ The Problem (Before):</strong> ${item.problem}
+                </div>
+                <div class="p-4 rounded-2xl bg-lime-400/10 border border-lime-400/20 text-zinc-300">
+                  <strong class="text-lime-400 block mb-1">✅ The Fix (After):</strong> ${item.solution}
+                </div>
+              </div>
+              <a href="${waBase + encodeURIComponent('Hi, I saw your ' + item.title + ' redesign and want similar thumbnails for my channel.')}" target="_blank" class="inline-block pt-2 text-sm font-bold text-white hover:text-lime-400 transition">
+                Want this for your channel? Let's talk ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    // Render Reels
+    const reelGrid = document.getElementById('reel-grid');
+    STUDIO_DATA.reels.forEach((reel) => {
+      const videoContent = reel.youtubeId
+        ? `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${reel.youtubeId}?rel=0&modestbranding=1" title="${reel.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+        : `<div class="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-zinc-900 to-black">
+             <div class="w-14 h-14 rounded-2xl bg-lime-400/10 border border-lime-400/30 text-lime-400 flex items-center justify-center text-2xl mb-4">▶</div>
+             <div class="text-sm font-bold text-white">Sample Reel Ready on Request</div>
+             <p class="text-xs text-zinc-500 mt-1">Click below to get a custom 15-sec sample edit for your raw footage.</p>
+           </div>`;
+
+      reelGrid.innerHTML += `
+        <div class="bento-card rounded-3xl p-5 flex flex-col justify-between">
+          <div>
+            <div class="aspect-[9/16] rounded-2xl overflow-hidden border border-white/10 bg-black mb-5">
+              ${videoContent}
+            </div>
+            <span class="text-[11px] font-bold tracking-widest text-lime-400 uppercase">${reel.tag}</span>
+            <h3 class="text-xl font-bold mt-1">${reel.title}</h3>
+            <p class="text-xs text-zinc-400 mt-2 leading-relaxed">${reel.description}</p>
+          </div>
+          <a href="${waBase + encodeURIComponent('Hi, I want to see a sample for ' + reel.title)}" target="_blank" class="mt-5 w-full py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-lime-400 hover:text-black text-center text-xs font-bold transition">
+            Request Custom Sample ↗
+          </a>
+        </div>
+      `;
+    });
+
+    // Render Pricing
+    const pricingGrid = document.getElementById('pricing-grid');
+    STUDIO_DATA.pricing.forEach((plan) => {
+      const borderClass = plan.popular ? "border-lime-400/50 ring-1 ring-lime-400/30" : "border-white/10";
+      const btnClass = plan.popular ? "bg-lime-400 text-black hover:bg-lime-300" : "bg-white/10 text-white hover:bg-white hover:text-black";
+      
+      pricingGrid.innerHTML += `
+        <div class="bento-card rounded-3xl p-7 flex flex-col justify-between border ${borderClass}">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold tracking-wider text-zinc-400 uppercase">${plan.badge}</span>
+              ${plan.popular ? '<span class="px-2.5 py-1 rounded-full bg-lime-400/20 text-lime-300 text-[10px] font-extrabold uppercase">Most Popular</span>' : ''}
+            </div>
+            <h3 class="text-2xl font-bold mt-3">${plan.name}</h3>
+            <p class="text-xs text-zinc-400 mt-1">${plan.desc}</p>
+            <div class="mt-6 flex items-baseline gap-1">
+     
