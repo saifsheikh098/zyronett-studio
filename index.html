@@ -271,15 +271,15 @@
         <div class="thumb-grid">
           <div>
             <!-- Tap Buttons for Mobile & Desktop -->
-            <div class="img-tabs">
-              <button class="tab-btn active" onclick="switchImg('thumb1', 'After-1.jpg', 'AFTER (OUR REDESIGN)', this)">
+                        <div class="img-tabs">
+              <button class="tab-btn active" onclick="switchImg('thumb1', 'After-1.jpg', this)">
                 ✨ AFTER (REDESIGN)
               </button>
-              <button class="tab-btn" onclick="switchImg('thumb1', 'before-1.jpg', 'BEFORE (ORIGINAL)', this)">
+              <button class="tab-btn" onclick="switchImg('thumb1', 'before-1.JPG', this)">
                 ❌ SEE BEFORE
               </button>
-            </div>
-
+                        </div>
+          
             <!-- Image Box -->
             <div class="thumb-frame">
               <img id="img-thumb1" src="After-1.jpg" alt="600 Sq Ft Luxury House Thumbnail">
@@ -453,13 +453,12 @@
     </footer>
   </main>
 
-    <script>
-    function switchImg(id, imgSrc, badgeText, btn) {
+  <script>
+    function switchImg(id, imgSrc, btn) {
       document.getElementById('img-' + id).src = imgSrc;
-      document.getElementById('badge-' + id).innerText = badgeText;
       const buttons = btn.parentElement.querySelectorAll('.tab-btn');
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
-    </script>
-    
+  </script>
+  
