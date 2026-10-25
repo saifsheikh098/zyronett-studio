@@ -1,447 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>ZyroNett Studio — High-CTR Thumbnails & Video Editing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #070709;
-      --card: #111115;
-      --border: rgba(255, 255, 255, 0.1);
-      --lime: #a3e635;
-      --text: #f4f4f5;
-      --muted: #a1a1aa;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 18px; }
-    a { text-decoration: none; color: inherit; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyroNett Studio | Luxury Real Estate Video Editing Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --card-bg: #121217;
+            --border: #27272a;
+            --text-main: #f4f4f5;
+            --muted: #a1a1aa;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        /* Hero Section */
+        .hero { text-align: center; padding: 60px 20px 40px; }
+        .badge { display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: clamp(16px, 2vw, 18px); color: var(--muted); max-width: 700px; margin: 0 auto 40px; }
 
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(7, 7, 9, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-bar {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
-    }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
-    .logo-box {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--lime); color: #000;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 15px;
-    }
-    .logo span { color: var(--lime); font-weight: 500; }
-    .btn-sm {
-      background: var(--lime); color: #000;
-      padding: 9px 16px; border-radius: 99px;
-      font-weight: 700; font-size: 13px;
-      transition: 0.2s;
-    }
-
-    /* Hero */
-    .hero { padding: 48px 0 36px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 99px;
-      background: rgba(163, 230, 53, 0.1);
-      border: 1px solid rgba(163, 230, 53, 0.3);
-      color: var(--lime); font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.8px;
-      margin-bottom: 20px;
-    }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
-    h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(32px, 7vw, 68px);
-      line-height: 1.06; font-weight: 800;
-      letter-spacing: -1px; margin-bottom: 18px;
-    }
-    h1 span { color: var(--lime); }
-    .hero-p { color: var(--muted); font-size: clamp(15px, 2.2vw, 19px); max-width: 640px; margin-bottom: 28px; }
-    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn-primary {
-      background: var(--lime); color: #000;
-      padding: 15px 24px; border-radius: 14px;
-      font-weight: 800; font-size: 15px;
-      display: inline-block; text-align: center;
-      width: 100%;
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.06); color: #fff;
-      border: 1px solid var(--border);
-      padding: 15px 24px; border-radius: 14px;
-      font-weight: 700; font-size: 15px;
-      display: inline-block; text-align: center;
-      width: 100%;
-    }
-
-    /* Stats Grid */
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 12px; margin-top: 36px;
-    }
-    .stat-card {
-      background: var(--card); border: 1px solid var(--border);
-      padding: 16px; border-radius: 16px;
-    }
-    .stat-val { font-size: 20px; font-weight: 800; color: #fff; }
-    .stat-val.lime { color: var(--lime); }
-    .stat-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-    /* Sections */
-    section { padding: 48px 0 16px; }
-    .sec-tag { color: var(--lime); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; }
-    h2 { font-family: 'Syne', sans-serif; font-size: clamp(24px, 5vw, 42px); font-weight: 800; margin-top: 6px; line-height: 1.15; }
-    .sec-sub { color: var(--muted); font-size: 14px; margin-top: 8px; margin-bottom: 28px; max-width: 540px; }
-
-    /* Cards */
-    .bento-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-
-    /* Thumbnail Showcase (Mobile First) */
-    .thumb-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    .img-tabs {
-      display: flex; gap: 8px; margin-bottom: 12px;
-      background: #000; padding: 5px; border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    .tab-btn {
-      flex: 1; padding: 10px; border-radius: 8px;
-      border: none; font-weight: 800; font-size: 12px;
-      cursor: pointer; transition: 0.2s;
-      background: transparent; color: var(--muted);
-    }
-    .tab-btn.active { background: var(--lime); color: #000; }
-    .thumb-frame {
-      position: relative; width: 100%; aspect-ratio: 16 / 9;
-      border-radius: 14px; overflow: hidden;
-      background: #18181b; border: 1px solid var(--border);
-    }
-    .thumb-frame img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .img-badge {
-      position: absolute; top: 10px; left: 10px;
-      background: rgba(0,0,0,0.85); color: var(--lime);
-      border: 1px solid rgba(163,230,53,0.4);
-      padding: 5px 10px; border-radius: 99px;
-      font-size: 11px; font-weight: 800;
-    }
-    .case-title { font-size: 20px; font-weight: 800; margin: 14px 0 12px; }
-    .box-prob {
-      background: rgba(239, 68, 68, 0.08);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-      padding: 12px 14px; border-radius: 12px;
-      font-size: 13px; color: #e4e4e7; margin-bottom: 10px;
-    }
-    .box-prob strong { color: #f87171; display: block; margin-bottom: 3px; }
-    .box-fix {
-      background: rgba(163, 230, 53, 0.08);
-      border: 1px solid rgba(163, 230, 53, 0.25);
-      padding: 12px 14px; border-radius: 12px;
-      font-size: 13px; color: #e4e4e7;
-    }
-    .box-fix strong { color: var(--lime); display: block; margin-bottom: 3px; }
-
-    /* Reels Grid */
-    .reels-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-    .reel-box {
-      aspect-ratio: 9 / 16; max-height: 420px; width: 100%;
-      background: linear-gradient(180deg, #18181b 0%, #09090b 100%);
-      border-radius: 16px; border: 1px solid var(--border);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 20px; margin-bottom: 14px; overflow: hidden;
-    }
-    .reel-box iframe { width: 100%; height: 100%; border: none; }
-    .play-icon {
-      width: 52px; height: 52px; border-radius: 16px;
-      background: rgba(163, 230, 53, 0.12);
-      border: 1px solid rgba(163, 230, 53, 0.35);
-      color: var(--lime); display: flex; align-items: center; justify-content: center;
-      font-size: 20px; margin-bottom: 12px;
-    }
-
-    /* Pricing Grid */
-    .price-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-    .bento-card.popular { border-color: var(--lime); box-shadow: 0 0 30px -10px rgba(163, 230, 53, 0.2); }
-    .price-amt { font-size: 34px; font-weight: 800; margin: 14px 0 4px; }
-    .price-amt span { font-size: 13px; color: var(--muted); font-weight: 500; }
-    .feat-list { list-style: none; margin: 16px 0 22px; border-top: 1px solid var(--border); padding-top: 16px; }
-    .feat-list li { font-size: 13.5px; color: #d4d4d8; margin-bottom: 10px; display: flex; gap: 8px; }
-    .feat-list li b { color: var(--lime); }
-
-    /* Footer CTA */
-    .cta-box {
-      text-align: center; padding: 36px 20px;
-      background: linear-gradient(180deg, rgba(163,230,53,0.08) 0%, rgba(17,17,21,0.95) 100%);
-      border: 1px solid rgba(163,230,53,0.3);
-      border-radius: 24px; margin-top: 40px;
-    }
-    footer {
-      text-align: center; padding: 30px 0 40px;
-      color: var(--muted); font-size: 12px;
-      border-top: 1px solid var(--border); margin-top: 40px;
-    }
-
-    /* Tablet & Desktop Upgrades */
-    @media (min-width: 640px) {
-      .btn-primary, .btn-secondary { width: auto; }
-      .stats-grid { grid-template-columns: repeat(4, 1fr); }
-      .reels-grid, .price-grid { grid-template-columns: repeat(3, 1fr); }
-      .thumb-grid { grid-template-columns: 1.2fr 1fr; align-items: center; }
-      .bento-card { padding: 28px; }
-    }
-  </style>
+        /* Pricing Grid */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.2s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-4px); }
+        .card.popular { border: 2px solid var(--accent); background: linear-gradient(180deg, #121217 0%, #1a1a24 100%); }
+        .popular-badge { position: absolute; top: -12px; right: 24px; background: var(--accent); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 10px; text-transform: uppercase; }
+        
+        .plan-tag { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .plan-title { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+        .price { font-size: 32px; font-weight: 800; margin-bottom: 24px; color: #fff; }
+        .price span { font-size: 14px; font-weight: 400; color: var(--muted); }
+        
+        .features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
+        .features li { font-size: 14px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .features li b { color: var(--text-main); }
+        
+        .btn { display: block; text-align: center; background: #27272a; color: white; text-decoration: none; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 15px; transition: background 0.2s; }
+        .card.popular .btn { background: var(--accent); }
+        .btn:hover { opacity: 0.9; }
+    </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav-bar">
-      <a href="#" class="logo">
-  <img src="logo.png" alt="ZyroNett Studio" style="height: 38px; width: auto; border-radius: 8px;">
-      </a>
-      
-      <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20discuss%20a%20project." target="_blank" class="btn-sm">
-        WhatsApp Us ↗
-      </a>
-    </div>
-  </header>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="badge">ZYRONETT STUDIO • REAL ESTATE CONTENT PARTNERS</div>
+            <h1>Cinematic Edits with <span>Start-Up Agility</span></h1>
+            <p>We help luxury real estate agents, brokers, and developers turn raw property walkthroughs into high-retention commercial reels that drive high-net-worth buyers.</p>
+        </div>
 
-  <main class="container">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="badge"><span class="dot"></span> High-Conversion Creative Studio</div>
-      <h1>STOP LOSING VIEWS TO <span>WEAK PACKAGING.</span></h1>
-      <p class="hero-p">
-        We engineer high-CTR YouTube Thumbnails and high-retention Short-Form Reels for creators and brands who want real clicks, not just pretty designs.
-      </p>
-      <div class="btn-group">
-        <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20a%20free%20thumbnail/reel%20audit." target="_blank" class="btn-primary">
-          Get a Free Content Audit ↗
-        </a>
-        <a href="#work" class="btn-secondary">See Before / After Work ↓</a>
-      </div>
+        <!-- Pricing & Service Tiers -->
+        <div class="pricing-grid">
+            
+            <!-- Plan 1 -->
+            <div class="card">
+                <div class="plan-tag">01 / Trial Listing</div>
+                <div class="plan-title">Single Property Reel</div>
+                <div class="price">₹2,499 <span>/ $49 per reel</span></div>
+                <ul class="features">
+                    <li><b>✓</b> 1 High-Retention Cinematic Reel</li>
+                    <li><b>✓</b> Smooth Speed Ramps & Beat Sync</li>
+                    <li><b>✓</b> DaVinci Resolve Luxury Color Grading</li>
+                    <li><b>✓</b> Dynamic Property Spec Callouts</li>
+                    <li><b>✓</b> 24–48 Hour Turnaround</li>
+                </ul>
+                <a href="https://wa.me/916391434871?text=Hi%20ZyroNett,%20I%20want%20to%20book%20a%20Single%20Property%20Trial%20Reel." class="btn">Book Trial Reel</a>
+            </div>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-val">Psychology</div>
-          <div class="stat-lbl">Driven CTR Design</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val lime">24–48 Hr</div>
-          <div class="stat-lbl">Fast Turnaround</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val">Hook-First</div>
-          <div class="stat-lbl">Retention Pacing</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-val lime">100%</div>
-          <div class="stat-lbl">Custom Visuals</div>
-        </div>
-      </div>
-    </div>
+            <!-- Plan 2 -->
+            <div class="card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="plan-tag">02 / Active Growth</div>
+                <div class="plan-title">Realtor Growth Partner</div>
+                <div class="price">₹14,000 <span>/ $249 mo</span></div>
+                <ul class="features">
+                    <li><b>✓</b> 6 Cinematic Property Walkthroughs</li>
+                    <li><b>✓</b> Motion Tracked Text & Price Tags</li>
+                    <li><b>✓</b> High-Contrast Day/Sunset Grading</li>
+                    <li><b>✓</b> Custom High-CTR Reel Covers</li>
+                    <li><b>✓</b> 2 Revisions per Video</li>
+                </ul>
+                <a href="https://wa.me/916391434871?text=Hi%20ZyroNett,%20I%20am%20interested%20in%20the%20Realtor%20Growth%20Partner%20Plan." class="btn">Start Growth Plan</a>
+            </div>
 
-    <!-- ================================================================= -->
-    <!-- 01 / THUMBNAIL PORTFOLIO (YAHAN APNI PHOTOS KA NAAM SET HOTA HAI) -->
-    <!-- ================================================================= -->
-          <!-- THUMBNAIL CASE STUDY 1 -->
-      <div class="bento-card">
-        <div class="thumb-grid">
-          <div>
-            <!-- Tap Buttons for Mobile & Desktop -->
-                                    <div class="img-tabs">
-              <button class="tab-btn active" onclick="switchImg('thumb1', 'After-1.jpg', this)">
-                ✨ AFTER (REDESIGN)
-              </button>
-              <button class="tab-btn" onclick="switchImg('thumb1', 'before-1.jpg', this)">
-                ❌ SEE BEFORE
-              </button>
-                                    </div>
-            
-            <!-- Image Box -->
-            <div class="thumb-frame">
-              <img id="img-thumb1" src="After-1.jpg" alt="600 Sq Ft Luxury House Thumbnail">
-            </div>
-          </div>
+            <!-- Plan 3 -->
+            <div class="card">
+                <div class="plan-tag">03 / Developers & Scale</div>
+                <div class="plan-title">Luxury Builder Scale</div>
+                <div class="price">₹26,000 <span>/ $449 mo</span></div>
+                <ul class="features">
+                    <li><b>✓</b> 12 Ultra-Luxury Commercial Reels</li>
+                    <li><b>✓</b> Advanced 3D Tracking & Speed Ramps</li>
+                    <li><b>✓</b> Hook Scripting & Retention Strategy</li>
+                    <li><b>✓</b> Dedicated Project Manager</li>
+                    <li><b>✓</b> Priority 24h Delivery</li>
+                </ul>
+                <a href="https://wa.me/916391434871?text=Hi%20ZyroNett,%20I%20am%20interested%20in%20the%20Luxury%20Builder%20Scale%20Plan." class="btn">Partner With Us</a>
+            </div>
 
-          <div>
-            <div class="sec-tag">ARCHITECTURE / REAL ESTATE</div>
-            <div class="case-title">600 Sq Ft Luxury House — CTR Redesign</div>
-            <div class="box-prob">
-              <strong>❌ The Problem (Before):</strong>
-              12 words ka cluttered text aur flat blue strip jisne 30% screen block kar rakhi thi. Mobile par padhna mushkil tha.
-            </div>
-            <div class="box-fix">
-              <strong>✅ The Fix (After):</strong>
-              Text ko 6 high-contrast words mein badla, background blur karke 3D depth di, aur rooftop pool par curiosity arrow lagaya.
-            </div>
-          </div>
-        </div>
-      </div>
-    
+        </div>
+    </div>
 
-    <!-- ================================================================= -->
-    <!-- 02 / VIDEO REELS SECTION (FUTURE MEIN YOUTUBE ID YAHAN DAALEIN)   -->
-    <!-- ================================================================= -->
-    <section id="reels">
-      <div class="sec-tag">02 / Short-Form Editing</div>
-      <h2>EDITS THAT HOLD ATTENTION.</h2>
-      <p class="sec-sub">Clean captions, crisp sound effects (SFX), and intentional pacing engineered for Instagram Reels & YouTube Shorts.</p>
-
-      <div class="reels-grid">
-                    
-              <!-- REEL CARD 1 -->
-            <div class="bento-card">
-              <div class="reel-box" style="padding: 0; overflow: hidden; border-radius: 12px; margin-bottom: 12px;">
-                <div style="position: relative; width: 100%; padding-bottom: 177.77%; height: 0; background: #000;">
-                  <iframe src="https://www.youtube.com/embed/mi1MzM4R9sY?loop=1&playlist=mi1MzM4R9sY" 
-                          title="ZyroNett Studio Real Estate Edit" 
-                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen>
-                  </iframe>
-                </div>
-              </div>
-              <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">Dubai Real Estate Before/After Edit</div>
-              <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">High-end color grading & dynamic visual upgrade.</p>
-              <div class="sec-tag">REELS / SHORTS</div>
-              <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px; margin-bottom: 12px;">Commercial & Property Transformation</h3>
-              <a href="https://wa.me/916391434871?text=Hi,%20ZyroNett%20Studio,%20I%20want%20to%20request%20a%20sample%20edit." class="btn-primary" style="display: block; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none;">
-                Request Sample on WhatsApp ↗
-              </a>
-            </div>
-        
-        <!-- REEL CARD 2 -->
-        <div class="bento-card">
-          <div class="reel-box">
-            <div class="play-icon">▶</div>
-            <div style="font-weight: 800; font-size: 14px;">Brand & Commercial Cuts</div>
-            <p style="font-size: 12px; color: var(--muted); margin-top: 6px;">High-contrast color grading & speed-ramps for businesses.</p>
-          </div>
-          <div class="sec-tag">BRAND CONTENT</div>
-          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">Visual Storytelling & Pacing</h3>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20a%20Brand%20Reel%20sample." target="_blank" class="btn-secondary" style="margin-top: 14px; padding: 11px; font-size: 13px;">
-            Request Sample on WhatsApp ↗
-          </a>
-        </div>
-
-        <!-- REEL CARD 3 -->
-        <div class="bento-card">
-          <div class="reel-box">
-            <div class="play-icon">▶</div>
-            <div style="font-weight: 800; font-size: 14px;">Documentary / Faceless Style</div>
-            <p style="font-size: 12px; color: var(--muted); margin-top: 6px;">Cinematic B-roll, motion graphics & deep audio design.</p>
-          </div>
-          <div class="sec-tag">YOUTUBE / NICHE</div>
-          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">High-AVD Storytelling</h3>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20a%20Documentary%20Edit%20sample." target="_blank" class="btn-secondary" style="margin-top: 14px; padding: 11px; font-size: 13px;">
-            Request Sample on WhatsApp ↗
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 03 / PRICING PLANS                                                -->
-    <!-- ================================================================= -->
-    <section id="pricing">
-      <div class="sec-tag">03 / Transparent Pricing</div>
-      <h2>START SMALL OR SCALE FAST.</h2>
-      <p class="sec-sub">No hidden fees. Test our quality with a starter pack or lock in monthly growth.</p>
-
-      <div class="price-grid">
-        <!-- PLAN 1 -->
-        <div class="bento-card">
-          <div class="sec-tag">01 / ENTRY PACK</div>
-          <h3 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Thumbnail Pack</h3>
-          <div class="price-amt">₹2,499 <span>/ 5 Thumbnails</span></div>
-          <ul class="feat-list">
-            <li><b>✓</b> 5 Custom High-CTR Thumbnails</li>
-            <li><b>✓</b> Click-Psychology & Hook Ideation</li>
-            <li><b>✓</b> 2 Variations for A/B Testing</li>
-            <li><b>✓</b> 24–48 Hour Fast Delivery</li>
-          </ul>
-          <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20order%20the%20Thumbnail%20Pack%20(Rs%202499)." target="_blank" class="btn-secondary">
-            Order Pack ↗
-          </a>
-        </div>
-
-        <!-- PLAN 2 (POPULAR) -->
-        <div class="bento-card popular">
-          <div class="sec-tag">02 / MOST POPULAR ⭐</div>
-          <h3 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Creator Growth</h3>
-          <div class="price-amt">₹9,999 <span>/ month</span></div>
-          <ul class="feat-list">
-            <li><b>✓</b> 8 High-Retention Reels Editing</li>
-            <li><b>✓</b> 4 Custom YouTube/Reel Thumbnails</li>
-            <li><b>✓</b> Dynamic Captions & SFX Design</li>
-            <li><b>✓</b> 2 Revisions per Video</li>
-          </ul>
-          <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20am%20interested%20in%20the%20Creator%20Growth%20Plan%20(Rs%209999)." target="_blank" class="btn-primary">
-            Choose Growth ↗
-          </a>
-        </div>
-
-        <!-- PLAN 3 -->
-        <div class="bento-card">
-          <div class="sec-tag">03 / FULL SCALE</div>
-          <h3 style="font-size: 22px; font-weight: 800; margin-top: 4px;">Studio Partner</h3>
-          <div class="price-amt">₹19,999 <span>/ month</span></div>
-          <ul class="feat-list">
-            <li><b>✓</b> 15 Premium Reels / Shorts Editing</li>
-            <li><b>✓</b> 8 High-CTR YouTube Thumbnails</li>
-            <li><b>✓</b> Monthly Hook & Content Strategy</li>
-            <li><b>✓</b> Priority 24-Hr Turnaround</li>
-          </ul>
-          <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20am%20interested%20in%20the%20Studio%20Partner%20Plan%20(Rs%2019999)." target="_blank" class="btn-secondary">
-            Choose Partner ↗
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER CTA -->
-    <div class="cta-box">
-      <h2>WANT A FREE SAMPLE FIRST?</h2>
-      <p style="color: var(--muted); font-size: 14px; max-width: 480px; margin: 10px auto 24px;">
-        Send us your YouTube or Instagram link on WhatsApp. We'll audit your packaging and show you exactly where you're losing views.
-      </p>
-      <div class="btn-group" style="justify-content: center;">
-        <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20here%20is%20my%20channel%20link%20for%20a%20free%20audit:" target="_blank" class="btn-primary">
-          Chat on WhatsApp ↗
-        </a>
-        <a href="https://www.instagram.com/zyronett.studio/" target="_blank" class="btn-secondary">
-          Instagram ↗
-        </a>
-      </div>
-    </div>
-    <!-- 04 / CAREERS -->
-    <section id="careers" style="margin-top: 48px;">
-      <div class="sec-tag">04 / JOIN THE TEAM</div>
-      <h2>ARE YOU A HIGH-RETENTION EDITOR?</h2>
-      <p class="sec-sub">Hum talented video editors aur motion designers ki talash mein rehte hain.</p>
-
-      <div class="bento-card" style="text-align: center; padding: 32px 20px;">
-        <div style="font-size:
+</body>
+</html>
