@@ -38,13 +38,8 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 70px;
     }
-    .logo-area { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; }
-    .logo-badge {
-      width: 30px; height: 30px; border-radius: 8px;
-      background: var(--lime); color: #070709;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 12px;
-    }
+    .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; }
+    .logo-area img { height: 34px; width: auto; border-radius: 6px; object-fit: contain; }
     .logo-area span { color: var(--lime); }
     
     .nav-links { display: none; gap: 20px; font-size: 13px; font-weight: 600; color: var(--muted); }
@@ -196,8 +191,8 @@
   <header>
     <div class="container nav-bar">
       <div class="logo-area">
-        <div class="logo-badge">ZN</div>
-        ZyroNett<span>.</span>
+        <img src="logo.png" alt="ZyroNett Studio Logo">
+        <span>ZyroNett<span>.</span></span>
       </div>
       
       <nav class="nav-links">
