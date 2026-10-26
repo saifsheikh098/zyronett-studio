@@ -4,201 +4,189 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>ZyroNett Studio — Property Reels & Real Estate Editing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #070709;
       --card: #111115;
       --border: rgba(255, 255, 255, 0.08);
-      --lime: #a3e635; /* Tera Exact Brand Green Color */
+      --lime: #a3e635;
       --lime-glow: rgba(163, 230, 53, 0.15);
       --text: #f4f4f5;
       --muted: #a1a1aa;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
     a { text-decoration: none; color: inherit; }
 
     /* Header */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(7, 7, 9, 0.9);
+      background: rgba(7, 7, 9, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
     .nav-bar {
       display: flex; align-items: center; justify-content: space-between;
-      height: 76px;
+      height: 70px;
     }
-    .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; }
+    .logo-area { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; }
     .logo-badge {
-      width: 32px; height: 32px; border-radius: 8px;
+      width: 30px; height: 30px; border-radius: 8px;
       background: var(--lime); color: #070709;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 13px;
+      font-weight: 900; font-size: 12px;
     }
     .logo-area span { color: var(--lime); }
     
-    .nav-links { display: none; gap: 24px; font-size: 14px; font-weight: 600; color: var(--muted); }
+    .nav-links { display: none; gap: 20px; font-size: 13px; font-weight: 600; color: var(--muted); }
     .nav-links a:hover { color: var(--text); }
     @media(min-width: 768px) { .nav-links { display: flex; } }
 
     .btn-whatsapp {
       background: var(--lime); color: #070709;
-      padding: 10px 20px; border-radius: 99px;
+      padding: 9px 18px; border-radius: 99px;
       font-weight: 800; font-size: 13px;
       transition: 0.2s; display: inline-block;
     }
-    .btn-whatsapp:hover { opacity: 0.9; transform: translateY(-1px); }
 
     /* Hero */
-    .hero { padding: 64px 0 48px; }
+    .hero { padding: 48px 0 36px; }
     h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(38px, 6.5vw, 68px);
-      line-height: 1.08; font-weight: 800;
-      letter-spacing: -1.5px; margin-bottom: 20px;
-      max-width: 850px;
+      font-size: clamp(32px, 7vw, 56px);
+      line-height: 1.15; font-weight: 800;
+      letter-spacing: -0.5px; margin-bottom: 16px;
     }
     h1 span { color: var(--lime); }
-    .hero-p { color: var(--muted); font-size: clamp(16px, 2vw, 18px); max-width: 650px; margin-bottom: 32px; }
+    .hero-p { color: var(--muted); font-size: clamp(15px, 2.2vw, 17px); margin-bottom: 24px; }
     
-    .btn-group { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+    .btn-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+    @media(min-width: 480px) { .btn-group { flex-direction: row; } }
+
     .btn-primary {
       background: var(--lime); color: #070709;
-      padding: 16px 28px; border-radius: 12px;
-      font-weight: 800; font-size: 15px;
-      display: inline-block; text-align: center;
-      transition: 0.2s;
+      padding: 15px 24px; border-radius: 12px;
+      font-weight: 800; font-size: 14px;
+      text-align: center; display: block;
     }
-    .btn-primary:hover { opacity: 0.9; }
-
     .btn-secondary {
       background: rgba(255,255,255,0.05); color: #fff;
       border: 1px solid var(--border);
-      padding: 16px 28px; border-radius: 12px;
-      font-weight: 700; font-size: 15px;
-      display: inline-block; text-align: center;
-      transition: 0.2s;
+      padding: 15px 24px; border-radius: 12px;
+      font-weight: 700; font-size: 14px;
+      text-align: center; display: block;
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
-
-    .hero-note { font-size: 13px; color: var(--muted); max-width: 550px; }
+    .hero-note { font-size: 12.5px; color: var(--muted); }
 
     /* Sections */
-    section { padding: 64px 0 24px; }
-    .sec-tag { color: var(--lime); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; display: block; }
-    h2 { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 40px); font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; }
-    .sec-sub { color: var(--muted); font-size: 15px; margin-top: 10px; margin-bottom: 36px; max-width: 600px; }
+    section { padding: 48px 0 16px; }
+    .sec-tag { color: var(--lime); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; display: block; }
+    h2 { font-size: clamp(24px, 5vw, 36px); font-weight: 800; line-height: 1.2; letter-spacing: -0.3px; }
+    .sec-sub { color: var(--muted); font-size: 14px; margin-top: 8px; margin-bottom: 28px; }
 
     /* Bento Cards */
     .bento-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      margin-bottom: 24px;
-      transition: border-color 0.2s;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
-    .bento-card:hover { border-color: rgba(163, 230, 53, 0.3); }
 
-    /* Interactive Before/After Showcase */
-    .thumb-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+    /* Before/After Showcase */
+    .thumb-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
     .img-tabs {
-      display: flex; gap: 8px; margin-bottom: 14px;
-      background: #070709; padding: 6px; border-radius: 12px;
+      display: flex; gap: 6px; margin-bottom: 12px;
+      background: #070709; padding: 4px; border-radius: 10px;
       border: 1px solid var(--border);
     }
     .tab-btn {
-      flex: 1; padding: 12px; border-radius: 8px;
-      border: none; font-weight: 700; font-size: 12px;
-      cursor: pointer; transition: 0.2s;
-      background: transparent; color: var(--muted);
-      letter-spacing: 0.5px;
+      flex: 1; padding: 10px; border-radius: 8px;
+      border: none; font-weight: 700; font-size: 11px;
+      cursor: pointer; background: transparent; color: var(--muted);
     }
     .tab-btn.active { background: var(--lime); color: #070709; }
     
     .thumb-frame {
       position: relative; width: 100%; aspect-ratio: 16 / 9;
-      border-radius: 14px; overflow: hidden;
+      border-radius: 12px; overflow: hidden;
       background: #070709; border: 1px solid var(--border);
     }
     .thumb-frame img {
       width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: opacity 0.25s ease-in-out;
+      transition: opacity 0.2s ease-in-out;
     }
     
-    .case-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; margin: 12px 0 16px; }
+    .case-title { font-size: 18px; font-weight: 800; margin: 10px 0 12px; }
     .box-prob {
       background: rgba(239, 68, 68, 0.05);
       border: 1px solid rgba(239, 68, 68, 0.2);
-      padding: 16px; border-radius: 12px;
-      font-size: 14px; color: #e4e4e7; margin-bottom: 12px;
+      padding: 14px; border-radius: 10px;
+      font-size: 13px; color: #e4e4e7; margin-bottom: 10px;
     }
-    .box-prob strong { color: #f87171; display: block; margin-bottom: 4px; }
+    .box-prob strong { color: #f87171; display: block; margin-bottom: 3px; }
     .box-fix {
       background: rgba(163, 230, 53, 0.05);
       border: 1px solid rgba(163, 230, 53, 0.2);
-      padding: 16px; border-radius: 12px;
-      font-size: 14px; color: #e4e4e7;
+      padding: 14px; border-radius: 10px;
+      font-size: 13px; color: #e4e4e7;
     }
-    .box-fix strong { color: var(--lime); display: block; margin-bottom: 4px; }
+    .box-fix strong { color: var(--lime); display: block; margin-bottom: 3px; }
 
     /* Reels Grid */
-    .reels-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .reels-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
     .reel-box {
       aspect-ratio: 9 / 16; width: 100%;
-      background: #070709; border-radius: 14px;
-      border: 1px solid var(--border); overflow: hidden; margin-bottom: 16px;
+      background: #070709; border-radius: 12px;
+      border: 1px solid var(--border); overflow: hidden; margin-bottom: 14px;
     }
     .reel-box iframe { width: 100%; height: 100%; border: none; }
 
     /* Pricing Plans */
-    .price-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    .price-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
     .bento-card.popular { 
       border-color: var(--lime); 
       background: linear-gradient(180deg, #111115 0%, #18181f 100%);
       position: relative;
     }
     .popular-tag {
-      position: absolute; top: -14px; right: 24px;
+      position: absolute; top: -12px; right: 20px;
       background: var(--lime); color: #070709;
-      font-size: 11px; font-weight: 800; padding: 4px 12px;
-      border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;
+      font-size: 10px; font-weight: 800; padding: 4px 10px;
+      border-radius: 20px; text-transform: uppercase;
     }
-    .price-amt { font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800; margin: 16px 0 8px; color: #fff; }
-    .price-amt span { font-size: 14px; color: var(--muted); font-weight: 500; }
+    .price-amt { font-size: 32px; font-weight: 800; margin: 12px 0 6px; color: #fff; }
+    .price-amt span { font-size: 13px; color: var(--muted); font-weight: 500; }
     
-    .feat-list { list-style: none; margin: 20px 0 28px; border-top: 1px solid var(--border); padding-top: 20px; }
-    .feat-list li { font-size: 14px; color: #cbd5e1; margin-bottom: 12px; display: flex; gap: 10px; align-items: center; }
+    .feat-list { list-style: none; margin: 16px 0 22px; border-top: 1px solid var(--border); padding-top: 16px; }
+    .feat-list li { font-size: 13.5px; color: #cbd5e1; margin-bottom: 10px; display: flex; gap: 8px; align-items: center; }
     .feat-list li b { color: var(--lime); }
 
     /* Footer CTA */
     .cta-box {
-      text-align: center; padding: 48px 24px;
+      text-align: center; padding: 36px 20px;
       background: linear-gradient(180deg, rgba(163,230,53,0.06) 0%, rgba(17,17,21,0.95) 100%);
       border: 1px solid rgba(163, 230, 53, 0.25);
-      border-radius: 24px; margin-top: 60px;
+      border-radius: 20px; margin-top: 40px;
     }
     footer {
-      text-align: center; padding: 40px 0;
-      color: var(--muted); font-size: 13px;
-      border-top: 1px solid var(--border); margin-top: 60px;
+      text-align: center; padding: 30px 0;
+      color: var(--muted); font-size: 12px;
+      border-top: 1px solid var(--border); margin-top: 40px;
     }
 
-    /* Responsive Breakpoints */
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
       .reels-grid, .price-grid { grid-template-columns: repeat(3, 1fr); }
       .thumb-grid { grid-template-columns: 1.2fr 1fr; }
+      .bento-card { padding: 26px; }
     }
   </style>
 </head>
@@ -216,8 +204,6 @@
         <a href="#work">Work</a>
         <a href="#pricing">Pricing</a>
         <a href="#reels">Services</a>
-        <a href="#pricing">FAQ</a>
-        <a href="#work">Contact</a>
       </nav>
 
       <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20discuss%20a%20project." target="_blank" class="btn-whatsapp">
@@ -248,7 +234,7 @@
       </div>
     </div>
 
-    <!-- 01 / WORK SHOWCASE (FIXED BEFORE/AFTER SWITCHER) -->
+    <!-- 01 / WORK SHOWCASE -->
     <section id="work">
       <span class="sec-tag">01 / Proven Transformation</span>
       <h2>THE VISUAL DIFFERENCE.</h2>
@@ -294,7 +280,6 @@
       <p class="sec-sub">Designed specifically to keep high-net-worth property buyers hooked from the first second.</p>
 
       <div class="reels-grid">
-        <!-- REEL 1 -->
         <div class="bento-card">
           <div class="reel-box">
             <iframe src="https://www.youtube.com/embed/mi1MzM4R9sY?loop=1&playlist=mi1MzM4R9sY" 
@@ -304,42 +289,40 @@
             </iframe>
           </div>
           <span class="sec-tag">WALKTHROUGH REEL</span>
-          <h3 style="font-size: 18px; font-weight: 800; margin: 4px 0 10px;">Luxury Commercial Property Cut</h3>
-          <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">Enhanced with beat-sync audio design & speed transitions.</p>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20more%20property%20reel%20samples." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 12px; font-size: 13px;">
-            Request Similar Sample ↗
+          <h3 style="font-size: 16px; font-weight: 800; margin: 4px 0 8px;">Luxury Commercial Property Cut</h3>
+          <p style="font-size: 12.5px; color: var(--muted); margin-bottom: 14px;">Enhanced with beat-sync audio design & speed transitions.</p>
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20see%20more%20property%20reel%20samples." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 10px; font-size: 12.5px;">
+            Request Sample ↗
           </a>
         </div>
 
-        <!-- REEL 2 -->
         <div class="bento-card">
           <div class="reel-box" style="display: flex; align-items: center; justify-content: center; background: #14141a;">
             <div style="text-align: center; padding: 20px;">
-              <div style="font-size: 28px; color: var(--lime); margin-bottom: 8px;">⚡</div>
-              <div style="font-weight: 800; font-size: 15px;">Speed-Ramp & Motion Track</div>
+              <div style="font-size: 24px; color: var(--lime); margin-bottom: 6px;">⚡</div>
+              <div style="font-weight: 800; font-size: 14px;">Speed-Ramp & Motion Track</div>
             </div>
           </div>
           <span class="sec-tag">BUILDER ADS</span>
-          <h3 style="font-size: 18px; font-weight: 800; margin: 4px 0 10px;">Meta Ad Optimization</h3>
-          <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">Lower your cost-per-lead (CPL) with high-retention video hooks.</p>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20optimize%20my%20real%20estate%20ad%20videos." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 12px; font-size: 13px;">
-            Request Similar Sample ↗
+          <h3 style="font-size: 16px; font-weight: 800; margin: 4px 0 8px;">Meta Ad Optimization</h3>
+          <p style="font-size: 12.5px; color: var(--muted); margin-bottom: 14px;">Lower your cost-per-lead (CPL) with high-retention video hooks.</p>
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20optimize%20my%20real%20estate%20ad%20videos." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 10px; font-size: 12.5px;">
+            Request Sample ↗
           </a>
         </div>
 
-        <!-- REEL 3 -->
         <div class="bento-card">
           <div class="reel-box" style="display: flex; align-items: center; justify-content: center; background: #14141a;">
             <div style="text-align: center; padding: 20px;">
-              <div style="font-size: 28px; color: var(--lime); margin-bottom: 8px;">🏛️</div>
-              <div style="font-weight: 800; font-size: 15px;">Authority Talking-Head</div>
+              <div style="font-size: 24px; color: var(--lime); margin-bottom: 6px;">🏛️</div>
+              <div style="font-weight: 800; font-size: 14px;">Authority Talking-Head</div>
             </div>
           </div>
           <span class="sec-tag">REALTOR BRANDING</span>
-          <h3 style="font-size: 18px; font-weight: 800; margin: 4px 0 10px;">Agent Personal Branding</h3>
-          <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">Clean captions, b-roll integration, and professional audio cleanup.</p>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20samples%20for%20realtor%20branding." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 12px; font-size: 13px;">
-            Request Similar Sample ↗
+          <h3 style="font-size: 16px; font-weight: 800; margin: 4px 0 8px;">Agent Personal Branding</h3>
+          <p style="font-size: 12.5px; color: var(--muted); margin-bottom: 14px;">Clean captions, b-roll integration, and professional audio cleanup.</p>
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20samples%20for%20realtor%20branding." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 10px; font-size: 12.5px;">
+            Request Sample ↗
           </a>
         </div>
       </div>
@@ -352,10 +335,9 @@
       <p class="sec-sub">Choose a single trial listing or lock in our monthly growth retainer for scale.</p>
 
       <div class="price-grid">
-        <!-- PLAN 1 -->
         <div class="bento-card">
           <span class="sec-tag">ENTRY TRIAL</span>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; margin-top: 4px;">Single Property Reel</h3>
+          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">Single Property Reel</h3>
           <div class="price-amt">₹2,499 <span>/ reel</span></div>
           <ul class="feat-list">
             <li><b>✓</b> 1 High-Retention Cinematic Edit</li>
@@ -363,16 +345,15 @@
             <li><b>✓</b> Smooth Speed Ramps & SFX</li>
             <li><b>✓</b> 24–48 Hour Turnaround</li>
           </ul>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20book%20a%20Single%20Property%20Trial%20Reel%20(Rs%202499)." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 14px;">
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20book%20a%20Single%20Property%20Trial%20Reel%20(Rs%202499)." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 12px;">
             Book Trial Reel ↗
           </a>
         </div>
 
-        <!-- PLAN 2 (POPULAR) -->
         <div class="bento-card popular">
           <div class="popular-tag">Most Popular</div>
           <span class="sec-tag">ACTIVE REALTORS</span>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; margin-top: 4px;">Realtor Growth Partner</h3>
+          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">Realtor Growth Partner</h3>
           <div class="price-amt">₹14,000 <span>/ month</span></div>
           <ul class="feat-list">
             <li><b>✓</b> 6 Cinematic Property Walkthroughs</li>
@@ -380,15 +361,14 @@
             <li><b>✓</b> Custom High-CTR Reel Covers</li>
             <li><b>✓</b> Priority Support & Revisions</li>
           </ul>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20start%20the%20Realtor%20Growth%20Partner%20Plan%20(Rs%2014000)." target="_blank" class="btn-primary" style="display: block; text-align: center; padding: 14px;">
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20start%20the%20Realtor%20Growth%20Partner%20Plan%20(Rs%2014000)." target="_blank" class="btn-primary" style="display: block; text-align: center; padding: 12px;">
             Start Growth Partner ↗
           </a>
         </div>
 
-        <!-- PLAN 3 -->
         <div class="bento-card">
           <span class="sec-tag">BUILDERS & SCALE</span>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; margin-top: 4px;">Luxury Builder Scale</h3>
+          <h3 style="font-size: 18px; font-weight: 800; margin-top: 4px;">Luxury Builder Scale</h3>
           <div class="price-amt">₹26,000 <span>/ month</span></div>
           <ul class="feat-list">
             <li><b>✓</b> 12 Ultra-Luxury Commercial Reels</li>
@@ -396,7 +376,7 @@
             <li><b>✓</b> Dedicated Project Manager</li>
             <li><b>✓</b> Ad Creative Optimization Support</li>
           </ul>
-          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20partner%20for%20Luxury%20Builder%20Scale%20(Rs%2026000)." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 14px;">
+          <a href="https://wa.me/916391434871?text=Hi,%20I%20want%20to%20partner%20for%20Luxury%20Builder%20Scale%20(Rs%2026000)." target="_blank" class="btn-secondary" style="display: block; text-align: center; padding: 12px;">
             Partner With Us ↗
           </a>
         </div>
@@ -406,15 +386,12 @@
     <!-- FOOTER CTA -->
     <div class="cta-box">
       <h2>READY TO ELEVATE YOUR REAL ESTATE BRAND?</h2>
-      <p style="color: var(--muted); font-size: 14px; max-width: 520px; margin: 12px auto 28px;">
+      <p style="color: var(--muted); font-size: 13.5px; max-width: 480px; margin: 10px auto 24px;">
         Send us your raw property link or Instagram handle on WhatsApp. Let's discuss how we can turn your listings into high-converting commercial assets.
       </p>
       <div class="btn-group" style="justify-content: center;">
         <a href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20let's%20talk%20about%20real%20estate%20video%20editing." target="_blank" class="btn-primary">
           Chat on WhatsApp ↗
-        </a>
-        <a href="https://www.instagram.com/zyronett.studio/" target="_blank" class="btn-secondary">
-          Instagram ↗
         </a>
       </div>
     </div>
@@ -427,20 +404,14 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT FOR FIXED BEFORE/AFTER SWITCHER -->
   <script>
     function switchImage(filename, btn) {
       const imgElement = document.getElementById('active-thumb');
-      
-      // Smooth fade effect
       imgElement.style.opacity = '0';
-      
       setTimeout(() => {
         imgElement.src = filename;
         imgElement.style.opacity = '1';
       }, 150);
-
-      // Switch active tab styling
       const tabs = btn.parentElement.querySelectorAll('.tab-btn');
       tabs.forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
