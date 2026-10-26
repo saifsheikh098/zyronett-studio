@@ -1,113 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZyroNett Studio | Luxury Real Estate Video Editing Agency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #09090b;
-            --card-bg: #121217;
-            --border: #27272a;
-            --text-main: #f4f4f5;
-            --muted: #a1a1aa;
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 40px 20px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        
-        /* Hero Section */
-        .hero { text-align: center; padding: 60px 20px 40px; }
-        .badge { display: inline-block; background: var(--accent-glow); color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(59, 130, 246, 0.3); }
-        .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
-        .hero h1 span { color: var(--accent); }
-        .hero p { font-size: clamp(16px, 2vw, 18px); color: var(--muted); max-width: 700px; margin: 0 auto 40px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZyroNett Studio | Cinematic Reels for Real Estate</title>
+<meta name="description" content="Cinematic property reels and covers for real estate agents and builders. Free sample before you pay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b0b0b;--ink2:#1a1a1a;--line:rgba(247,247,247,.14);--bone:#f7f7f7;--muted:#a3a3a3;--lime:#a7ff0a;--lime2:#c6ff57}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--ink);color:var(--bone);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lime2);outline-offset:3px}
+[hidden]{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.1}
+h2{font-size:clamp(26px,5vw,42px);margin-bottom:14px;max-width:780px}
+.sub{color:var(--muted);max-width:580px;margin-bottom:32px}
+section{padding:72px 0 4px}
 
-        /* Pricing Grid */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px; }
-        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.2s; }
-        .card:hover { border-color: var(--accent); transform: translateY(-4px); }
-        .card.popular { border: 2px solid var(--accent); background: linear-gradient(180deg, #121217 0%, #1a1a24 100%); }
-        .popular-badge { position: absolute; top: -12px; right: 24px; background: var(--accent); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 10px; text-transform: uppercase; }
-        
-        .plan-tag { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .plan-title { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
-        .price { font-size: 32px; font-weight: 800; margin-bottom: 24px; color: #fff; }
-        .price span { font-size: 14px; font-weight: 400; color: var(--muted); }
-        
-        .features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
-        .features li { font-size: 14px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .features li b { color: var(--text-main); }
-        
-        .btn { display: block; text-align: center; background: #27272a; color: white; text-decoration: none; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 15px; transition: background 0.2s; }
-        .card.popular .btn { background: var(--accent); }
-        .btn:hover { opacity: 0.9; }
-    </style>
+/* buttons */
+.btn{display:inline-block;padding:14px 28px;font-weight:700;font-size:14px;text-align:center;border-radius:10px;border:0;cursor:pointer;transition:transform .12s,box-shadow .12s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(3px)}
+.btn-lime{background:var(--lime);color:var(--ink);box-shadow:0 4px 0 #5f9a00,inset 0 1px 0 rgba(255,255,255,.45)}
+.btn-lime:hover{box-shadow:0 6px 0 #5f9a00,inset 0 1px 0 rgba(255,255,255,.45)}
+.btn-lime:active{box-shadow:0 1px 0 #5f9a00,inset 0 1px 0 rgba(255,255,255,.45)}
+.btn-dark{background:#2a2a2a;color:var(--bone);box-shadow:0 4px 0 #000,inset 0 1px 0 rgba(255,255,255,.1)}
+.btn-dark:hover{box-shadow:0 6px 0 #000,inset 0 1px 0 rgba(255,255,255,.1)}
+.btn-dark:active{box-shadow:0 1px 0 #000,inset 0 1px 0 rgba(255,255,255,.1)}
+.row{display:flex;flex-wrap:wrap;gap:16px 12px}.row .btn{flex:1 1 100%}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-top:10px}
+.nav .btn{white-space:nowrap}
+.brand{display:flex;align-items:center;gap:10px;font:800 18px 'Montserrat',sans-serif}
+.brand img{height:34px;width:auto;border-radius:6px}
+.nav .btn{padding:9px 18px;font-size:13px;border-radius:8px}
+.links{display:flex;order:3;width:100%;gap:22px;overflow-x:auto;padding:12px 0 10px;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;scrollbar-width:none}
+.links a:hover{color:var(--lime)}
+
+/* hero */
+.hero{display:grid;gap:36px;padding:48px 0 36px}
+.hero h1{font-size:clamp(34px,7.5vw,68px);letter-spacing:-1.5px;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.lead{color:var(--muted);font-size:clamp(15px,2.3vw,18px);max-width:520px;margin-bottom:28px}
+.note{margin-top:14px;font-size:13px;color:var(--muted)}
+.phone{justify-self:center;width:min(100%,300px);aspect-ratio:9/16;border:1px solid var(--lime);border-radius:28px;padding:8px;background:var(--ink2);box-shadow:0 0 60px -15px rgba(167,255,10,.3)}
+.phone iframe{width:100%;height:100%;border:0;border-radius:20px;background:#000}
+
+/* work */
+.case{display:grid;gap:24px;background:var(--ink2);padding:18px}
+.tabs{display:flex;margin-bottom:12px;border:1px solid var(--line)}
+.tabs button{flex:1;padding:11px;background:none;border:0;color:var(--muted);font:600 13px 'Poppins',sans-serif;cursor:pointer}
+.tabs button.on{background:var(--lime);color:var(--ink)}
+.frame{aspect-ratio:16/9;background:#000;overflow:hidden}.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.case h3{font-size:22px;margin-bottom:12px}.case p{font-size:14px;color:var(--muted);margin-bottom:10px}.case p b{color:var(--bone)}
+.reels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));gap:32px;justify-content:center;margin-top:36px}
+.reel .phone{width:100%;margin-bottom:14px}.reel h3{font-size:18px}.reel p{font-size:13.5px;color:var(--muted)}
+
+/* results */
+.nums{display:grid;gap:0;border-top:1px solid var(--line);margin-bottom:36px}
+.num{padding:22px 0;border-bottom:1px solid var(--line)}
+.num b{display:block;font:800 36px 'Montserrat',sans-serif;color:var(--lime)}.num span{font-size:13px;color:var(--muted)}
+.stories{display:grid;gap:18px}
+.story,.quote{background:var(--ink2);padding:24px;border-top:3px solid var(--lime)}
+.story h3,.quote h3{font-size:19px;margin-bottom:8px}.story p,.quote p{font-size:14px;color:var(--muted)}
+.quote cite{display:block;margin-top:14px;font-style:normal;font-weight:600;font-size:14px}
+
+/* pitch */
+.pitch{margin-top:72px;padding:44px 24px;background:var(--ink2);border-left:4px solid var(--lime)}
+.pitch h2{margin-bottom:12px}.pitch p{color:var(--muted);max-width:560px;margin-bottom:24px}.pitch .btn{width:100%}
+
+/* pricing */
+.guar{display:inline-block;background:var(--lime);color:var(--ink);font:800 clamp(14px,3.4vw,18px) 'Montserrat',sans-serif;padding:10px 22px;margin-bottom:28px;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.plans{display:grid;gap:18px}
+.plan{background:var(--ink2);padding:34px 24px 28px;display:flex;flex-direction:column;position:relative}
+.plan::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--lime)}
+.plan h3{font-size:22px}.for{font-size:13px;color:var(--muted);margin:4px 0 18px}
+.price{font:800 36px/1.1 'Montserrat',sans-serif}.price small{font:500 13px 'Poppins',sans-serif;color:var(--muted)}
+.was{font-size:13px;color:var(--muted);margin-top:6px;min-height:20px}
+.per{font-size:13px;color:var(--lime);font-weight:600;margin:4px 0 18px}
+.plan ul{list-style:none;border-top:1px solid var(--line);padding-top:16px;margin-bottom:24px;flex:1}
+.plan li{font-size:14px;margin-bottom:10px;padding-left:20px;position:relative}
+.plan li::before{content:"";position:absolute;left:2px;top:10px;width:8px;height:1px;background:var(--lime)}
+.tag{position:absolute;top:0;left:24px;background:var(--ink);color:var(--lime);font-size:12px;font-weight:700;padding:3px 12px}
+.plan.best{background:var(--lime);color:var(--ink)}.plan.best::before{background:var(--ink)}
+.plan.best .for,.plan.best .was,.plan.best .price small{color:#2b3a05}.plan.best .per{color:var(--ink)}
+.plan.best ul{border-top-color:rgba(0,0,0,.25)}.plan.best li::before{background:var(--ink)}
+.plan.best .btn-lime{background:var(--ink);color:var(--lime);box-shadow:0 4px 0 #3d6b00,inset 0 1px 0 rgba(255,255,255,.12)}
+.plan.best .btn-lime:hover{box-shadow:0 6px 0 #3d6b00,inset 0 1px 0 rgba(255,255,255,.12)}
+.plan.best .btn-lime:active{box-shadow:0 1px 0 #3d6b00}
+.fine{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--lime);font-size:22px;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:12px;color:var(--muted);font-size:14.5px;max-width:680px}
+.faq{border-top:1px solid var(--line)}
+
+/* services */
+.svc{display:grid;gap:14px}
+.svc div{background:var(--ink2);padding:22px;border-left:3px solid var(--lime)}
+.svc h3{font-size:18px;margin-bottom:6px}.svc p{font-size:14px;color:var(--muted)}
+
+/* founder + contact */
+.founder{display:grid;gap:24px;align-items:center}
+.founder img{width:100%;max-width:300px;aspect-ratio:1;object-fit:cover;background:var(--ink2)}
+.founder p{color:var(--muted);max-width:520px}
+.contact{margin-top:72px;padding:52px 22px;text-align:center;border-top:3px solid var(--lime);background:var(--ink2)}
+.contact h2{margin:0 auto 12px}.contact p{color:var(--muted);max-width:480px;margin:0 auto 24px}
+.contact .row{justify-content:center}
+footer{padding:32px 0 44px;margin-top:56px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+footer a{color:var(--bone);border-bottom:1px solid var(--line)}
+
+@media(min-width:480px){.row .btn{flex:1 1 200px;max-width:280px}.pitch .btn{width:auto}}
+@media(min-width:760px){
+  .nav{flex-wrap:nowrap;height:62px;padding-top:0}
+  .links{position:absolute;left:50%;top:0;transform:translateX(-50%);height:62px;width:auto;order:0;align-items:center;padding:0;overflow:visible}
+  header .wrap{position:relative}
+  .hero{grid-template-columns:1.25fr 1fr;align-items:center;padding:80px 0 56px}
+  .case{grid-template-columns:1.3fr 1fr;align-items:center;padding:28px;gap:36px}
+  .nums{grid-template-columns:repeat(3,1fr);border-top:0;gap:28px}.num{border:0;border-top:1px solid var(--lime)}
+  .stories,.plans{grid-template-columns:repeat(3,1fr)}
+  .plan.best{margin:-14px 0;padding-top:42px;padding-bottom:42px}
+  .svc{grid-template-columns:repeat(3,1fr)}
+  .founder{grid-template-columns:300px 1fr;gap:44px}
+}
+@media(max-width:759px){.links{border-top:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover,.btn:active{transform:none}}
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Hero -->
-        <div class="hero">
-            <div class="badge">ZYRONETT STUDIO • REAL ESTATE CONTENT PARTNERS</div>
-            <h1>Cinematic Edits with <span>Start-Up Agility</span></h1>
-            <p>We help luxury real estate agents, brokers, and developers turn raw property walkthroughs into high-retention commercial reels that drive high-net-worth buyers.</p>
-        </div>
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand"><img src="logo.png" alt="" onerror="this.style.display='none'">ZyroNett</a>
+    <nav class="links" aria-label="Sections"><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#services">Services</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20discuss%20my%20property%20reels.">WhatsApp us</a>
+  </div>
+</header>
 
-        <!-- Pricing & Service Tiers -->
-        <div class="pricing-grid">
-            
-            <!-- Plan 1 -->
-            <div class="card">
-                <div class="plan-tag">01 / Trial Listing</div>
-                <div class="plan-title">Single Property Reel</div>
-                <div class="price">₹2,499 <span>/ $49 per reel</span></div>
-                <ul class="features">
-                    <li><b>✓</b> 1 High-Retention Cinematic Reel</li>
-                    <li><b>✓</b> Smooth Speed Ramps & Beat Sync</li>
-                    <li><b>✓</b> DaVinci Resolve Luxury Color Grading</li>
-                    <li><b>✓</b> Dynamic Property Spec Callouts</li>
-                    <li><b>✓</b> 24–48 Hour Turnaround</li>
-                </ul>
-                <a href="https://wa.me/916391434871?text=Hi%20ZyroNett,%20I%20want%20to%20book%20a%20Single%20Property%20Trial%20Reel." class="btn">Book Trial Reel</a>
-            </div>
+<main><div class="wrap">
 
-            <!-- Plan 2 -->
-            <div class="card popular">
-                <div class="popular-badge">Most Popular</div>
-                <div class="plan-tag">02 / Active Growth</div>
-                <div class="plan-title">Realtor Growth Partner</div>
-                <div class="price">₹14,000 <span>/ $249 mo</span></div>
-                <ul class="features">
-                    <li><b>✓</b> 6 Cinematic Property Walkthroughs</li>
-                    <li><b>✓</b> Motion Tracked Text & Price Tags</li>
-                    <li><b>✓</b> High-Contrast Day/Sunset Grading</li>
-                    <li><b>✓</b> Custom High-CTR Reel Covers</li>
-                    <li><b>✓</b> 2 Revisions per Video</li>
-                </ul>
-                <a href="https://wa.me/916391434871?text=Hi%20ZyroNett,%20I%20am%20interested%20in%20the%20Realtor%20Growth%20Partner%20Plan." class="btn">Start Growth Plan</a>
-            </div>
-
-            <!-- Plan 3 -->
-            <div class="card">
-                <div class="plan-tag">03 / Developers & Scale</div>
-                <div class="plan-title">Luxury Builder Scale</div>
-                <div class="price">₹26,000 <span>/ $449 mo</span></div>
-                <ul class="features">
-                    <li><b>✓</b> 12 Ultra-Luxury Commercial Reels</li>
-                    <li><b>✓</b> Advanced 3D Tracking & Speed Ramps</li>
-                    <li><b>✓</b> Hook Scripting & Retention Strategy</li>
-                    <li><b>✓</b> Dedicated Project Manager</li>
-                    <li><b>✓</b> Priority 24h Delivery</li>
-                </ul>
-                <a href="https://wa.me/916391434871?text=Hi%20ZyroNett,%20I%20am%20interested%20in%20the%20Luxury%20Builder%20Scale%20Plan." class="btn">Partner With Us</a>
-            </div>
-
-        </div>
+  <div class="hero">
+    <div>
+      <h1>Property reels that make buyers <em>stop scrolling.</em></h1>
+      <p class="lead">We edit cinematic reels and covers for real estate agents and builders. Speed ramps, beat-synced cuts, luxury colour grading, delivered in 24 to 48 hours.</p>
+      <div class="row">
+        <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20a%20free%20sample%20reel.%20Here%20is%20my%20Instagram:">Get a free sample reel</a>
+        <a class="btn btn-dark" href="#pricing">See pricing</a>
+      </div>
+      <p class="note">Send your Instagram link and a few clips. You see the sample before you pay anything.</p>
     </div>
+    <div class="phone"><iframe src="https://www.youtube.com/embed/mi1MzM4R9sY?loop=1&playlist=mi1MzM4R9sY&rel=0" title="ZyroNett Studio real estate reel" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+  </div>
 
-</body>
-</html>
+  <!-- WORK -->
+  <section id="work">
+    <h2>Our work</h2>
+    <p class="sub">Real edits and covers for property listings.</p>
+    <div class="case">
+      <div>
+        <div class="tabs"><button class="on" onclick="sw('After-1.jpg',this)">After</button><button onclick="sw('before-1.jpg',this)">Before</button></div>
+        <div class="frame"><img src="After-1.jpg" alt="600 sq ft luxury house thumbnail"></div>
+      </div>
+      <div>
+        <h3>600 sq ft luxury house</h3>
+        <p><b>Before.</b> Twelve words of text and a flat blue strip covering a third of the frame. Hard to read on a phone.</p>
+        <p><b>After.</b> Six high-contrast words, a blurred background for depth, and an arrow pointing at the rooftop pool.</p>
+      </div>
+    </div>
+    <!-- Reels gallery: VIDEO_ID_1 / VIDEO_ID_2 badlo, titles badlo, phir 'hidden' hata do -->
+    <div class="reels" hidden>
+      <div class="reel"><div class="phone"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0" title="ZyroNett reel 2" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><h3>Project name 1</h3><p>One line on what you did.</p></div>
+      <div class="reel"><div class="phone"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0" title="ZyroNett reel 3" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div><h3>Project name 2</h3><p>One line on what you did.</p></div>
+    </div>
+  </section>
+
+  <!-- RESULTS: sirf real numbers aur real clients ke saath 'hidden' hatao. Jhoot mat likho. -->
+  <section id="results" hidden>
+    <h2>Numbers that speak louder than words</h2>
+    <div class="nums">
+      <div class="num"><b>REAL NUMBER</b><span>e.g. total views on reels we edited</span></div>
+      <div class="num"><b>REAL NUMBER</b><span>e.g. reels delivered</span></div>
+      <div class="num"><b>REAL NUMBER</b><span>e.g. clients served</span></div>
+    </div>
+    <h2>What changed for our clients</h2>
+    <div class="stories">
+      <div class="story"><h3>Result headline (e.g. views before vs after)</h3><p>Client name, what they had before, what happened after, in how many days.</p></div>
+      <div class="story"><h3>Result headline</h3><p>Client name, before, after, timeframe.</p></div>
+      <div class="story"><h3>Result headline</h3><p>Client name, before, after, timeframe.</p></div>
+    </div>
+  </section>
+
+  <!-- PITCH -->
+  <div class="pitch">
+    <h2>If your listings aren't on reels, buyers won't find them.</h2>
+    <p>We turn your raw property clips into reels built to hold attention: strong hook, clean pacing, cinematic grade. You send footage. We send back a reel ready to post.</p>
+    <a class="btn btn-lime" href="#pricing">See pricing</a>
+  </div>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="guar">Free sample first. Don't like it? Pay nothing.</div>
+    <h2>Pick the pace that fits your listings.</h2>
+    <p class="sub">Monthly plans cost less per reel and keep your page consistent, which is what grows an audience.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Single reel</h3><div class="for">Try us on one listing.</div>
+        <div class="price">₹2,999 <small>one time</small></div><div class="was">&nbsp;</div><div class="per">₹2,999 per reel</div>
+        <ul><li>1 cinematic reel, up to 45 sec</li><li>1 matching cover</li><li>2 revision rounds</li><li>48-hour delivery</li></ul>
+        <a class="btn btn-dark" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20want%20to%20start%20with%20a%20single%20reel.">Start with one reel</a>
+      </div>
+      <div class="plan best">
+        <span class="tag">Best value</span>
+        <h3>Realtor growth</h3><div class="for">For agents posting every week.</div>
+        <div class="price">₹15,999 <small>per month</small></div><div class="was"><s>₹17,994 if bought one by one</s></div><div class="per">₹2,667 per reel</div>
+        <ul><li>6 cinematic reels a month</li><li>6 matching covers</li><li>Hooks written for each listing</li><li>2 revision rounds per reel</li><li>24 to 48 hour delivery</li></ul>
+        <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20am%20interested%20in%20the%20Realtor%20Growth%20plan.">Choose Realtor growth</a>
+      </div>
+      <div class="plan">
+        <h3>Builder scale</h3><div class="for">For developers with several projects live.</div>
+        <div class="price">₹29,999 <small>per month</small></div><div class="was"><s>₹35,988 if bought one by one</s></div><div class="per">₹2,500 per reel</div>
+        <ul><li>12 ultra-luxury reels a month</li><li>Covers and hooks for every reel</li><li>Monthly content plan call</li><li>Priority 24-hour delivery</li></ul>
+        <a class="btn btn-dark" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20I%20am%20interested%20in%20the%20Builder%20Scale%20plan.">Choose Builder scale</a>
+      </div>
+    </div>
+    <p class="fine">Prices in INR. Need USD billing? Message us and we will quote it.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>FAQs</h2>
+    <div class="faq">
+      <details><summary>How does the free sample work?</summary><p>Send your Instagram link and a few raw clips on WhatsApp. We cut a short sample reel. If you like it, we start. If not, you owe nothing.</p></details>
+      <details><summary>Who edits my reels?</summary><p>A small team of editors we work with directly. Every reel goes through the same grading and pacing checks before it reaches you.</p></details>
+      <details><summary>How long does a reel take?</summary><p>24 to 48 hours after we receive your footage. Priority plans get 24-hour delivery.</p></details>
+      <details><summary>Do I need to shoot anything special?</summary><p>No. Shoot with your phone or camera as you normally do. Send the raw clips and we handle the edit, grade, sound and captions.</p></details>
+      <details><summary>Can I use the reels on YouTube and Facebook too?</summary><p>Yes. The reels are yours to post anywhere.</p></details>
+      <details><summary>How do we communicate?</summary><p>On WhatsApp. You send clips and feedback there, and we deliver there too.</p></details>
+      <details><summary>My needs are different from these plans. Can you help?</summary><p>Yes. Message us on WhatsApp with what you need and we will quote a custom plan.</p></details>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Here's what we do for you</h2>
+    <div class="svc">
+      <div><h3>Reel editing</h3><p>Fast, clean cuts with speed ramps and beat-synced transitions.</p></div>
+      <div><h3>Colour grading</h3><p>Luxury grade in DaVinci Resolve, so every property looks premium.</p></div>
+      <div><h3>Hooks and captions</h3><p>A strong first two seconds and captions that are easy to read on a phone.</p></div>
+      <div><h3>Covers</h3><p>High-contrast covers and thumbnails that match your reel.</p></div>
+      <div><h3>Sound design</h3><p>Music, effects and pacing that keep people watching.</p></div>
+      <div><h3>Content plan</h3><p>A monthly plan for what to post and when, on the Builder plan.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS: real client quotes aane par 'hidden' hatao -->
+  <section id="clients" hidden>
+    <h2>Hear from our clients</h2>
+    <div class="stories">
+      <div class="quote"><p>“Real client quote goes here.”</p><cite>Client name, role, company</cite></div>
+      <div class="quote"><p>“Real client quote goes here.”</p><cite>Client name, role, company</cite></div>
+    </div>
+  </section>
+
+  <!-- FOUNDER: photo (founder.jpg) aur apni real bio likho, phir 'hidden' hatao -->
+  <section id="founder" hidden>
+    <h2>Meet the founder</h2>
+    <div class="founder">
+      <img src="founder.jpg" alt="Mohd Saif, founder of ZyroNett Studio">
+      <div><h3>Mohd Saif</h3><p>Write 2 to 3 true lines here about your editing experience and why you started ZyroNett.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact" id="contact">
+    <h2>Let's connect</h2>
+    <p>Send your Instagram link and a few raw clips. We will cut a free sample and show you what your page could look like.</p>
+    <div class="row">
+      <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio,%20here%20is%20my%20Instagram%20for%20a%20free%20sample:">Chat on WhatsApp</a>
+      <a class="btn btn-dark" target="_blank" rel="noopener" href="https://www.instagram.com/zyronett.studio/">Instagram</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>ZyroNett Studio
