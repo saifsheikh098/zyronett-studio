@@ -22,7 +22,7 @@
       --muted: #a1a1aa;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     body { background: var(--bg); color: var(--text); line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -39,6 +39,10 @@
     .nav-right { display: flex; align-items: center; gap: 10px; }
     .pill { background: var(--lime); color: #070709; padding: 9px 18px; border-radius: 99px; font-weight: 800; font-size: 13px; white-space: nowrap; transition: transform .2s, box-shadow .2s; }
     .pill:hover { transform: translateY(-1px); box-shadow: 0 6px 24px var(--lime-glow); }
+    .logo { min-width: 0; }
+    .logo span { white-space: nowrap; }
+    .nav-right { flex-shrink: 0; }
+    @media (max-width: 600px) { .nav-right .pill { display: none; } }
     .menu-btn { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border); background: transparent; color: var(--text); font-size: 18px; cursor: pointer; }
     .mobile-nav { display: none; flex-direction: column; padding: 8px 20px 18px; border-top: 1px solid var(--border); }
     .mobile-nav a { padding: 12px 0; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--border); }
