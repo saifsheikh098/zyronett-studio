@@ -26,7 +26,7 @@
     body { background: var(--bg); color: var(--text); line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 
     /* ---------- Header ---------- */
     header { position: sticky; top: 0; z-index: 100; background: rgba(7,7,9,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
@@ -46,7 +46,8 @@
     @media (min-width: 860px) { .nav-links { display: flex; } .menu-btn, .mobile-nav { display: none !important; } }
 
     /* ---------- Hero ---------- */
-    .hero { position: relative; padding: 56px 0 40px; }
+    .hero { position: relative; padding-top: 48px; padding-bottom: 40px; }
+    .hero { overflow: hidden; }
     .hero::before { content: ""; position: absolute; top: -120px; right: -160px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(163,230,53,0.14), transparent 65%); pointer-events: none; }
     .hero-grid { display: grid; gap: 36px; align-items: center; }
     .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 99px; border: 1px solid rgba(163,230,53,0.3); background: rgba(163,230,53,0.06); color: var(--lime); font-size: 12px; font-weight: 700; margin-bottom: 18px; }
@@ -63,17 +64,12 @@
     .btn-ghost:hover { background: rgba(255,255,255,0.09); }
     .note { font-size: 12.5px; color: var(--muted); }
 
-    .hero-visual { position: relative; display: flex; justify-content: center; }
-    .phone { width: min(280px, 72vw); aspect-ratio: 9/16; border-radius: 28px; border: 1px solid var(--border); background: var(--card); padding: 8px; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 6px #0d0d11; position: relative; overflow: hidden; }
-    .phone-inner { width: 100%; height: 100%; border-radius: 22px; overflow: hidden; background: #000; position: relative; }
-    .phone-inner img { width: 100%; height: 100%; object-fit: cover; }
-    .phone-tag { position: absolute; left: 12px; right: 12px; bottom: 12px; background: rgba(7,7,9,0.8); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; font-size: 12px; }
-    .phone-tag b { color: var(--lime); }
-    .float-chip { position: absolute; background: var(--card-2); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; font-size: 12px; font-weight: 700; box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
-    .float-chip b { color: var(--lime); display: block; font-size: 15px; }
-    .chip-1 { top: 12%; left: 2%; }
-    .chip-2 { bottom: 16%; right: 2%; }
-    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; } .hero { padding: 80px 0 56px; } }
+    .hero-visual { position: relative; }
+    .showcase { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); background: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+    .showcase img { width: 100%; height: 100%; object-fit: cover; }
+    .showcase-tag { position: absolute; left: 12px; bottom: 12px; background: rgba(7,7,9,0.8); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 10px; padding: 7px 12px; font-size: 12px; font-weight: 600; }
+    .showcase-tag b { color: var(--lime); }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; } .hero { padding-top: 80px; padding-bottom: 56px; } }
 
     /* ---------- Strip ---------- */
     .strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #0b0b0e; }
@@ -85,7 +81,7 @@
     @media (min-width: 768px) { .strip-row { grid-template-columns: repeat(4, 1fr); } .strip-item:nth-child(2n) { border-right: 1px solid var(--border); } .strip-item:last-child { border-right: none; } }
 
     /* ---------- Sections ---------- */
-    section { padding: 72px 0 8px; }
+    section { padding-top: 72px; padding-bottom: 8px; }
     .tag { color: var(--lime); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.4px; margin-bottom: 8px; display: block; }
     h2 { font-size: clamp(26px, 5vw, 40px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; }
     .sub { color: var(--muted); font-size: 14.5px; margin-top: 10px; margin-bottom: 32px; max-width: 620px; }
@@ -230,14 +226,10 @@
           <p class="note">Send your Instagram link and a few clips. You see the sample before you pay anything.</p>
         </div>
         <div class="hero-visual">
-          <div class="phone">
-            <div class="phone-inner">
-              <img src="After-1.jpg" alt="Cinematic property reel frame">
-              <div class="phone-tag"><b>● Reel</b> &nbsp;Luxury 4BHK Villa walkthrough</div>
-            </div>
+          <div class="showcase">
+            <img src="After-1.jpg" alt="Cinematic property reel frame">
+            <div class="showcase-tag"><b>● Our edit</b> &nbsp;Luxury 4BHK Villa</div>
           </div>
-          <div class="float-chip chip-1"><b>24–48h</b>Turnaround</div>
-          <div class="float-chip chip-2"><b>Free</b>Sample first</div>
         </div>
       </div>
     </div>
