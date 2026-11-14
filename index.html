@@ -180,4 +180,361 @@
     details p { color: var(--muted); font-size: 14px; margin-top: 10px; }
 
     /* ---------- CTA / Footer ---------- */
-    .cta { text-align: center; padding: 48px 22px; margin: 80px 0 0; background: linear-gradient(180deg, rgba(163,230,53,0.08) 0%, rgba(17,17,21,0.95) 100%); border: 1px solid rgba(1
+    .cta { text-align: center; padding: 48px 22px; margin: 80px 0 0; background: linear-gradient(180deg, rgba(163,230,53,0.08) 0%, rgba(17,17,21,0.95) 100%); border: 1px solid rgba(163,230,53,0.25); border-radius: 24px; }
+    .cta p { color: var(--muted); font-size: 14.5px; max-width: 520px; margin: 12px auto 26px; }
+    .cta .btns { justify-content: center; }
+    footer { padding: 34px 0; margin-top: 56px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    .foot { display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; }
+    .foot-links { display: flex; gap: 20px; font-weight: 600; }
+    .foot-links a:hover { color: var(--lime); }
+    @media (min-width: 768px) { .foot { flex-direction: row; justify-content: space-between; text-align: left; } }
+
+    .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 90; width: 54px; height: 54px; border-radius: 50%; background: var(--lime); color: #070709; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(163,230,53,0.35); }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo"><img src="logo.png" alt="ZyroNett Studio logo"><span>ZyroNett<b>.</b></span></a>
+      <nav class="nav-links">
+        <a href="#reels">Reels</a>
+        <a href="#websites">Websites</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-right">
+        <a class="pill" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20discuss%20a%20real%20estate%20project.">WhatsApp us</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#reels">Reels</a>
+      <a href="#websites">Websites</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="container hero">
+      <div class="hero-grid">
+        <div>
+          <div class="badge"><span class="dot"></span> Built for Real Estate Brands &amp; Property Creators</div>
+          <h1>Real estate reels, thumbnails &amp; websites that <span>win buyers.</span></h1>
+          <p class="lead">High-retention property reels, high-CTR YouTube thumbnails, and fast lead-capture websites for realtors, builders, and real estate channels. Delivered in 24 to 48 hours.</p>
+          <div class="btns">
+            <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20request%20a%20free%20sample%20edit.">Get a free sample edit</a>
+            <a class="btn btn-ghost" href="#reels">See our work</a>
+          </div>
+          <p class="note">Send your raw clips or channel link on WhatsApp. Get a free 15-sec reel preview or sample thumbnail before you pay.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REELS -->
+    <section id="reels" class="container" style="padding-top:40px">
+      <div class="reveal">
+        <span class="tag">01 / Reel Edits</span>
+        <h2>Property reels. <span>Press play.</span></h2>
+        <p class="sub">Vertical walkthroughs and ad creatives cut for retention, with a visual hook in the first 3 seconds.</p>
+      </div>
+      <div class="reels" id="reelsGrid"></div>
+    </section>
+
+    <div style="height:56px"></div>
+    <div class="strip">
+      <div class="container strip-row">
+        <div class="strip-item"><b>24–48h</b><span>Fast Delivery</span></div>
+        <div class="strip-item"><b>Free</b><span>15s Preview Before You Pay</span></div>
+        <div class="strip-item"><b>High-CTR</b><span>Thumbnails &amp; 9:16 Reels</span></div>
+        <div class="strip-item"><b>1 Studio</b><span>Reels, Thumbnails &amp; Web</span></div>
+      </div>
+    </div>
+
+    <!-- BEFORE / AFTER -->
+    <section id="work" class="container">
+      <div class="reveal">
+        <span class="tag">02 / The Visual Difference</span>
+        <h2>Raw footage in. <span>Cinematic reel out.</span></h2>
+        <p class="sub">Drag the slider to compare unedited property footage against our final color grade.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ba">
+          <div class="ba-wrap" id="ba">
+            <img src="After-1.jpg" alt="After: graded property shot">
+            <img src="before-1.jpg" alt="Before: raw property shot" class="ba-before" id="baBefore">
+            <span class="ba-label l">RAW BEFORE</span>
+            <span class="ba-label r">CINEMATIC AFTER</span>
+            <div class="ba-line" id="baLine"></div>
+            <div class="ba-knob" id="baKnob">⇆</div>
+            <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Compare before and after">
+          </div>
+          <div>
+            <span class="tag">Architectural walkthrough</span>
+            <div class="case-title">4,500 Sq. Ft. Luxury Villa</div>
+            <div class="box bad"><strong>❌ The raw footage</strong>Shaky opening, flat lighting and no hook, so buyers swipe away in the first two seconds.</div>
+            <div class="box good"><strong>✅ The ZyroNett edit</strong>Speed ramps, rich luxury colour grading and motion-tracked price &amp; spec tags that hold retention.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBSITE PROJECTS -->
+    <section id="websites" class="container">
+      <div class="reveal">
+        <span class="tag">03 / Website Design</span>
+        <h2>Websites built to <span>convert traffic.</span></h2>
+        <p class="sub">Fast, mobile-first websites with WhatsApp lead capture, galleries, reviews and maps. Tap to explore live builds.</p>
+      </div>
+      <div class="projects">
+        <a class="card proj reveal" href="https://suneeta-shukla-empire.pages.dev" target="_blank" rel="noopener">
+          <div class="proj-img"><img src="project-suneeta.jpg" alt="The Suneeta Shukla Empire website" loading="lazy"><span class="proj-badge">Live demo</span></div>
+          <div class="proj-meta">
+            <span class="kind">Hospitality &amp; Venue Property</span>
+            <h3>The Suneeta Shukla Empire</h3>
+            <p>Property spaces, virtual photo gallery, Google reviews, and an instant WhatsApp booking enquiry form.</p>
+            <span class="btn btn-ghost">View live site ↗</span>
+          </div>
+        </a>
+        <a class="card proj reveal" href="https://dimension-gym.pages.dev" target="_blank" rel="noopener">
+          <div class="proj-img"><img src="project-dimension-gym.jpg" alt="Dimension Gym website" loading="lazy"><span class="proj-badge">Live demo</span></div>
+          <div class="proj-meta">
+            <span class="kind">Commercial Fitness Space</span>
+            <h3>Dimension Gym</h3>
+            <p>Facility showcase, membership programs, schedules, reviews, and a direct WhatsApp lead-capture flow.</p>
+            <span class="btn btn-ghost">View live site ↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container">
+      <div class="reveal">
+        <span class="tag">04 / Services</span>
+        <h2>Everything your real estate brand <span>needs to convert.</span></h2>
+        <p class="sub">Hire us for standalone edits and thumbnails, or let us build your complete lead-generation funnel.</p>
+      </div>
+      <div class="services">
+        <div class="card svc reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+          </div>
+          <h3>Property Reels Editing</h3>
+          <p>Walkthroughs and agent videos cut like cinema, not raw phone clips.</p>
+          <ul><li>Speed ramps &amp; beat sync</li><li>DaVinci luxury colour grade</li><li>Tracked price &amp; BHK callouts</li></ul>
+        </div>
+        <div class="card svc reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3>Thumbnails &amp; Reel Covers</h3>
+          <p>High-CTR YouTube thumbnails and covers engineered to win the click.</p>
+          <ul><li>Property tour YouTube thumbnails</li><li>High-contrast Reel covers</li><li>Title &amp; visual hook pairing</li></ul>
+        </div>
+        <div class="card svc reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Meta Ad Video Hooks</h3>
+          <p>Scroll-stopping ad edits built to lower your cost per buyer enquiry.</p>
+          <ul><li>3-second pattern-interrupt hooks</li><li>Multiple hook variations</li><li>Lead-form &amp; WhatsApp CTAs</li></ul>
+        </div>
+        <div class="card svc new reveal">
+          <span class="new-tag">Lead Engine</span>
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3>Real Estate Websites</h3>
+          <p>Fast, mobile-first project and listing sites that turn views into site visits.</p>
+          <ul><li>Custom domain &amp; fast load</li><li>WhatsApp site-visit booking</li><li>Property gallery, specs &amp; maps</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="container">
+      <div class="reveal">
+        <span class="tag">05 / How it works</span>
+        <h2>Three steps. <span>Zero hassle.</span></h2>
+        <p class="sub">No long onboarding calls or lock-in contracts to get started.</p>
+      </div>
+      <div class="steps">
+        <div class="card step reveal"><div class="step-n">01</div><h3>Share clips or project brief</h3><p>Send raw walkthrough videos, YouTube links, or website details on WhatsApp.</p></div>
+        <div class="card step reveal"><div class="step-n">02</div><h3>Review your free sample</h3><p>See a free 15-sec reel cut, sample thumbnail, or homepage mockup before paying.</p></div>
+        <div class="card step reveal"><div class="step-n">03</div><h3>Launch &amp; scale fast</h3><p>Approve the style and get final reels, thumbnails, or live web pages in 24–48 hours.</p></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="container">
+      <div class="reveal">
+        <span class="tag">06 / Pricing</span>
+        <h2>Simple, <span>transparent pricing.</span></h2>
+        <p class="sub">Test us with a single order or save up to 30% on a monthly growth plan.</p>
+      </div>
+      <div class="prices">
+        <div class="card price reveal">
+          <span class="tag">Pay-as-you-go</span>
+          <h3>Single Property Reel</h3>
+          <div class="amt">₹2,499 <span>/ reel</span></div>
+          <ul class="feats">
+            <li><b>✓</b> 1 high-retention cinematic edit</li>
+            <li><b>✓</b> DaVinci Resolve colour grading</li>
+            <li><b>✓</b> Smooth speed ramps &amp; SFX</li>
+            <li><b>✓</b> Standalone thumbnails at ₹699 each</li>
+          </ul>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20book%20a%20Single%20Property%20Reel%20(Rs%202499).">Order single reel ↗</a>
+        </div>
+        <div class="card price pop reveal">
+          <div class="pop-tag">Most popular</div>
+          <span class="tag">Realtors &amp; creators</span>
+          <h3>Realtor Growth Partner</h3>
+          <div class="amt">₹14,000 <span>/ month</span></div>
+          <ul class="feats">
+            <li><b>✓</b> 8 cinematic property walkthroughs</li>
+            <li><b>✓</b> 8 custom high-CTR covers / thumbnails</li>
+            <li><b>✓</b> Motion-tracked price &amp; BHK tags</li>
+            <li><b>✓</b> Priority 24–48h turnaround &amp; revisions</li>
+          </ul>
+          <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20start%20the%20Realtor%20Growth%20Partner%20Plan%20(Rs%2014000).">Start Growth Partner ↗</a>
+        </div>
+        <div class="card price reveal">
+          <span class="tag">Builders &amp; channels</span>
+          <h3>Developer &amp; Channel Scale</h3>
+          <div class="amt">₹26,000 <span>/ month</span></div>
+          <ul class="feats">
+            <li><b>✓</b> 16 luxury reels or YouTube edits</li>
+            <li><b>✓</b> Custom YouTube thumbnails &amp; ad hooks</li>
+            <li><b>✓</b> Advanced 3D tracking &amp; sound design</li>
+            <li><b>✓</b> Dedicated project manager</li>
+          </ul>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20partner%20for%20Developer%20%26%20Channel%20Scale%20(Rs%2026000).">Partner with us ↗</a>
+        </div>
+      </div>
+      <div class="card web-quote reveal">
+        <div>
+          <h3>Need a real estate website or custom thumbnail pack?</h3>
+          <p>We build fast, mobile-first property landing pages and listing sites with WhatsApp lead capture—quoted within hours.</p>
+        </div>
+        <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20a%20quote%20for%20a%20real%20estate%20website.">Get a website quote ↗</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container">
+      <div class="reveal">
+        <span class="tag">07 / FAQ</span>
+        <h2>Questions, <span>answered.</span></h2>
+        <p class="sub">Anything else? Message us directly on WhatsApp.</p>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary>How does the free sample work?</summary><p>Send us a few raw clips or a video topic on WhatsApp. We edit a free 15-second watermarked reel preview (or 1 sample thumbnail) so you can judge our quality before paying anything.</p></details>
+        <details class="reveal"><summary>Do you design thumbnails for real estate YouTube channels?</summary><p>Yes. Alongside vertical Reels, we design high-CTR YouTube thumbnails for property walkthroughs, builder project launches, and real estate market breakdown videos.</p></details>
+        <details class="reveal"><summary>What do I need to send to start?</summary><p>For reels and thumbnails, just send your phone footage (Google Drive or WhatsApp) plus key details like price, configuration (BHK/Sq. Ft.), and location. For websites, share your property brochure or project details.</p></details>
+        <details class="reveal"><summary>How fast is turnaround time?</summary><p>Most reels and thumbnails are delivered within 24 to 48 hours. Custom real estate websites typically go live within 3 to 5 days.</p></details>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cta reveal">
+        <h2>Ready to turn views into <span>site visits?</span></h2>
+        <p>Send your raw property clips, YouTube channel, or website idea on WhatsApp. We'll send back a free sample preview.</p>
+        <div class="btns">
+          <a class="btn btn-lime" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20let's%20talk%20about%20my%20real%20estate%20project.">Chat on WhatsApp ↗</a>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.instagram.com/zyronett.studio/">Follow on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <a href="#" class="logo"><img src="logo.png" alt="ZyroNett Studio logo"><span>ZyroNett<b>.</b></span></a>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/zyronett.studio/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/916391434871" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <p>© <span id="year">2026</span> ZyroNett Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="https://wa.me/916391434871?text=Hi%20ZyroNett%20Studio%2C%20I%20want%20to%20discuss%20a%20real%20estate%20project.">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+  </a>
+
+  <script>
+    /* ===================================================================
+       APNI REELS YAHAN DAALO (sirf yeh hissa badalna hai)
+       type: "youtube"   -> id = YouTube video/Shorts ka ID
+             "instagram" -> id = reel link ka code (instagram.com/reel/CODE/)
+             "video"     -> src = repo mein upload ki hui .mp4 file ka naam
+       Khaali (id/src "") chhodoge to WhatsApp sample request card dikhega.
+       =================================================================== */
+    const REELS = [
+      { type: "youtube",   id: "mi1MzM4R9sY", tag: "Walkthrough reel", title: "Luxury Commercial Property Cut", desc: "Beat-synced audio and speed transitions." },
+      { type: "instagram", id: "",            tag: "Builder ad",       title: "Meta Ad Hook Edit",              desc: "A 3-second hook built to lower cost per lead." },
+      { type: "video",     src: "",           tag: "Agent branding",   title: "Realtor Personal Brand Reel",    desc: "Clean captions, b-roll and audio cleanup." }
+    ];
+
+    const grid = document.getElementById('reelsGrid');
+    REELS.forEach(r => {
+      let media = '';
+      if (r.type === 'youtube' && r.id) {
+        media = `<iframe loading="lazy" src="https://www.youtube.com/embed/${r.id}?rel=0&loop=1&playlist=${r.id}" title="${r.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      } else if (r.type === 'instagram' && r.id) {
+        media = `<iframe loading="lazy" src="https://www.instagram.com/reel/${r.id}/embed/" title="${r.title}" allowfullscreen scrolling="no"></iframe>`;
+      } else if (r.type === 'video' && r.src) {
+        media = `<video src="${r.src}" controls playsinline preload="metadata" muted loop></video>`;
+      } else {
+        const msg = encodeURIComponent(`Hi ZyroNett Studio, send me a sample of your ${r.title}.`);
+        media = `<a class="reel-empty" target="_blank" rel="noopener" href="https://wa.me/916391434871?text=${msg}"><div class="play">▶</div><p>${r.title}</p><span>Request sample on WhatsApp ↗</span></a>`;
+      }
+      grid.insertAdjacentHTML('beforeend', `
+        <div class="card reel reveal">
+          <div class="reel-frame">${media}</div>
+          <div class="reel-meta"><span class="tag">${r.tag}</span><h3>${r.title}</h3><p>${r.desc}</p></div>
+        </div>`);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.remove('open'); menuBtn.textContent = '☰'; menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Before / after slider
+    const range = document.getElementById('baRange');
+    const setBA = v => {
+      document.getElementById('baBefore').style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+      document.getElementById('baLine').style.left = v + '%';
+      document.getElementById('baKnob').style.left = v + '%';
+    };
+    range.addEventListener('input', e => setBA(e.target.value));
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
